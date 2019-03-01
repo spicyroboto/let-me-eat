@@ -1,9 +1,11 @@
-## (1) Git clone the repository
-## (2) Install Node
+## Set up
+
+### (1) Git clone the repository
+### (2) Install Node
 
 Visit the following link to download Node: [here](https://nodejs.org/en/).
 
-## (3) Install Dependencies
+### (3) Install Dependencies
 
 Navigate into the folder:
 
