@@ -1,18 +1,28 @@
-//Load HTTP module
-const http = require("http");
-const hostname = '127.0.0.1';
-const port = 3000;
+var express = require('express');
+var body_parser = require('body-parser');
+const PORT = process.env.PORT || 3000;
 
-//Create HTTP server and listen on port 3000 for requests
-const server = http.createServer((req, res) => {
+// --- INSTANTIATE THE APP
+var app = express();
 
-  //Set the response HTTP header with HTTP status and Content type
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
+app.use(express.static(__dirname + '/frontend'));
+
+// Configure body-parser for express
+app.use(body_parser.urlencoded({extended:false}));
+app.use(body_parser.json());
+
+// --- VIEW LOCATION, SET UP SERVING STATIC HTML
+ app.set('frontend', __dirname + '/frontend');
+ app.engine('html', require('ejs').renderFile);
+ app.set('frontend', 'html');
+
+// --- ROUTING
+// Home page
+app.get('/', function(request, response) {
+    response.render('index.html');
 });
 
-//listen for request on port 3000, and as a callback function have the port listened on logged
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+// --- START THE SERVER 
+var server = app.listen(PORT, function(){
+    console.log("Listening on port %d", server.address().port);
 });
