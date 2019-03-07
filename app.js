@@ -32,13 +32,7 @@ app.use(body_parser.json());
 
 
 app.get('/', function(request, response) {
-    con.connect(function(err) {
-        if (err) throw err;
-        con.query("SELECT * FROM customers", function (err, result, fields) {
-          if (err) throw err;
-            response.send(result);
-        });
-      });
+    response.send("LET ME EAT!!!!");
 });
 
 // app.get('/', function(request, response) {
