@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 var app = express();
 
 // === DATABASE INIT === //
-var mysql = require('mysql');
+// var mysql = require('mysql');
 // var connection = mysql.createConnection({
 //     host: 'us-cdbr-iron-east-03.cleardb.net',
 //     user: 'b2b7ed699e4b86',
