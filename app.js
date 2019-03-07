@@ -20,7 +20,7 @@ app.use(body_parser.json());
  app.set('frontend', 'html');
 
  // ===== ROUTES ===== //
- app.use(authRoutes);
+//  app.use(authRoutes);
  // ------------------ //
 
 // --- ROUTING
