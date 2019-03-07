@@ -18,16 +18,16 @@ var mysql = require('mysql');
 
 // ==== Static files ==== //
 // commented out for now to test db connection
-app.use(express.static(__dirname + '/frontend'));
+// app.use(express.static(__dirname + '/frontend'));
 
 // Configure body-parser for express
 app.use(body_parser.urlencoded({ extended: false }));
 app.use(body_parser.json());
 
 // --- VIEW LOCATION, SET UP SERVING STATIC HTML
-app.set('frontend', __dirname + '/frontend');
-app.engine('html', require('ejs').renderFile);
-app.set('frontend', 'html');
+// app.set('frontend', __dirname + '/frontend');
+// app.engine('html', require('ejs').renderFile);
+// app.set('frontend', 'html');
 
 // ===== ROUTES ===== //
 //  app.use(authRoutes);
@@ -35,7 +35,7 @@ app.set('frontend', 'html');
 
 
 app.get('/', function(request, response) {
-    response.send('LET ME EAT!!!');
+    response.send("LET ME EAT!!!");
 });
 
 // app.get('/', function(request, response) {
