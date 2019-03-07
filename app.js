@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 // --- INSTANTIATE THE APP
 var app = express();
 
-// Database initialization 
+// === DATABASE INIT === //
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'us-cdbr-iron-east-03.cleardb.net',
@@ -14,6 +14,7 @@ var connection = mysql.createConnection({
     password: 'edb631a1',
     database: 'heroku_e52fec4ca086f6b'
 });
+// ===================== //
 
 // ==== Static files ==== //
 // commented out for now to test db connection
@@ -33,25 +34,23 @@ app.set('frontend', 'html');
 // ------------------ //
 
 
-// app.get('/', function(request, response) {
-//     response.send("LET ME EAT!!!!");
-// });
-
-
+app.get('/', function(request, response) {
+    response.send('LET ME EAT!!!');
+});
 
 // app.get('/', function(request, response) {
 //     response.render('index.html');
 // });
 
-app.get('/', function (request, response) {
-    connection.connect(function (err) {
-        if (err) throw err;
-        connection.query("SELECT * FROM customers", function (err, result, fields) {
-            if (err) throw err;
-            response.send(result);
-        });
-    });
-});
+// app.get('/', function (request, response) {
+//     connection.connect(function (err) {
+//         if (err) throw err;
+//         connection.query("SELECT * FROM customers", function (err, result, fields) {
+//             if (err) throw err;
+//             response.send(result);
+//         });
+//     });
+// });
 
 // --- START THE SERVER 
 var server = app.listen(PORT, function () {
