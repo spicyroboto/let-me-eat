@@ -8,12 +8,12 @@ var app = express();
 
 // === DATABASE INIT === //
 var mysql = require('mysql');
-var connection = mysql.createConnection({
-    host: 'us-cdbr-iron-east-03.cleardb.net',
-    user: 'b2b7ed699e4b86',
-    password: 'edb631a1',
-    database: 'heroku_e52fec4ca086f6b'
-});
+// var connection = mysql.createConnection({
+//     host: 'us-cdbr-iron-east-03.cleardb.net',
+//     user: 'b2b7ed699e4b86',
+//     password: 'edb631a1',
+//     database: 'heroku_e52fec4ca086f6b'
+// });
 // ===================== //
 
 // ==== Static files ==== //
