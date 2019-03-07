@@ -7,6 +7,13 @@ const PORT = process.env.PORT || 3000;
 var app = express();
 
 // Database initialization 
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+    host     : 'us-cdbr-iron-east-03.cleardb.net',
+    user     : 'b2b7ed699e4b86',
+    password : 'edb631a1',
+    database : 'heroku_e52fec4ca086f6b'
+  });
 
 app.use(express.static(__dirname + '/frontend'));
 
@@ -23,11 +30,15 @@ app.use(body_parser.json());
 //  app.use(authRoutes);
  // ------------------ //
 
-// --- ROUTING
-// Home page
 
 app.get('/', function(request, response) {
-    response.send("LET ME EAT!!!!");
+    con.connect(function(err) {
+        if (err) throw err;
+        con.query("SELECT * FROM customers", function (err, result, fields) {
+          if (err) throw err;
+            response.send(result);
+        });
+      });
 });
 
 // app.get('/', function(request, response) {

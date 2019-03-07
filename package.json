@@ -22,13 +22,13 @@
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "mysql": "^2.16.0",
     "sequelize": "^4.42.1",
     "source-map-support": "^0.5.10",
     "tslint": "^5.13.1",
     "typescript": "^3.3.3333"
   },
   "devDependencies": {
+    "mysql": "^2.16.0",
     "nodemon": "^1.18.10"
   }
 }
