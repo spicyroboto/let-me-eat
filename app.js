@@ -18,7 +18,7 @@ var connection = mysql.createConnection({
 
 // ==== Static files ==== //
 // commented out for now to test db connection
-// app.use(express.static(__dirname + '/frontend'));
+app.use(express.static(__dirname + '/frontend'));
 
 // Configure body-parser for express
 app.use(body_parser.urlencoded({ extended: false }));
