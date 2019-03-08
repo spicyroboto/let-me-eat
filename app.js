@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 var app = express();
 
 // === DATABASE INIT === //
-var mysql = require('mysql');
+// var mysql = require('mysql');
 // var connection = mysql.createConnection({
 //     host: 'us-cdbr-iron-east-03.cleardb.net',
 //     user: 'b2b7ed699e4b86',
@@ -16,41 +16,30 @@ var mysql = require('mysql');
 // });
 // ===================== //
 
+
+
 // ==== Static files ==== //
-// commented out for now to test db connection
-// app.use(express.static(__dirname + '/frontend'));
+app.use(express.static(__dirname + '/frontend'));  // commented out for now to test db connection
 
 // Configure body-parser for express
 app.use(body_parser.urlencoded({ extended: false }));
 app.use(body_parser.json());
 
 // --- VIEW LOCATION, SET UP SERVING STATIC HTML
-// app.set('frontend', __dirname + '/frontend');
-// app.engine('html', require('ejs').renderFile);
-// app.set('frontend', 'html');
+app.set('frontend', __dirname + '/frontend');
+app.engine('html', require('ejs').renderFile);
+app.set('frontend', 'html');
 
+/* Add all routes to their own file then just use
+ "app.use([file_name])" */
 // ===== ROUTES ===== //
-//  app.use(authRoutes);
-// ------------------ //
+app.use(authRoutes);
 
 
 app.get('/', function(request, response) {
-    response.send("LET ME EAT!!!");
+    response.render('index.html');
 });
 
-// app.get('/', function(request, response) {
-//     response.render('index.html');
-// });
-
-// app.get('/', function (request, response) {
-//     connection.connect(function (err) {
-//         if (err) throw err;
-//         connection.query("SELECT * FROM customers", function (err, result, fields) {
-//             if (err) throw err;
-//             response.send(result);
-//         });
-//     });
-// });
 
 // --- START THE SERVER 
 var server = app.listen(PORT, function () {
