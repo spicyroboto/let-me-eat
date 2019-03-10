@@ -26,4 +26,4 @@ Or alternatively, with nodemon:
 The app is available at localhost:3000.
 
 Deployment:
-let-me-eat.herokuapp.com
+[Heroku Website](let-me-eat.herokuapp.com).
