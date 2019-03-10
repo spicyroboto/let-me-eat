@@ -17,24 +17,24 @@ app.engine('html', require('ejs').renderFile);
 app.set('frontend', 'html');
 
 // --- ROUTING
+app.use(require('./routes/routes'));
+// var router = express.Router();
 
-var router = express.Router();
+// app.get('/getRestrictions', function (req, res) {
+//     res.send("Stub for list of restrictions");
+// })
 
-app.get('/getRestrictions', function (req, res) {
-    res.send("Stub for list of restrictions");
-})
+// app.get('/getRestaurants', function (req, res) {
+//     res.send("Stub for list of restrictions");
+// })
 
-app.get('/getRestaurants', function (req, res) {
-    res.send("Stub for list of restrictions");
-})
+// app.get('/getReviews/:restaurantId', function (req, res) {
+//     res.send("Stub for list of reviews by restaurant id");
+// })
 
-app.get('/getReviews/:restaurantId', function (req, res) {
-    res.send("Stub for list of reviews by restaurant id");
-})
-
-app.get('/getMenu/:menuId', function (req, res) {
-    res.send("Stub for menu for restaurantby menu id");
-})
+// app.get('/getMenu/:menuId', function (req, res) {
+//     res.send("Stub for menu for restaurantby menu id");
+// })
 
 // app.post('/login', function (req, res) {
 //     var username = req.body.user;
@@ -51,10 +51,10 @@ app.get('/getMenu/:menuId', function (req, res) {
 
 
 
-// Home page
-app.get('/', function (request, response) {
-    response.render('index.html');
-});
+// // Home page
+// app.get('/', function (request, response) {
+//     response.render('index.html');
+// });
 
 // --- START THE SERVER 
 var server = app.listen(PORT, function () {
