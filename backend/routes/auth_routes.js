@@ -10,8 +10,8 @@ router.get('/db', function (request, response) {
     });
 });
 
-router.get('/', function(request, response) {
-    response.render('index.html');
-});
+// router.get('/', function(request, response) {
+//     response.render('index.html');
+// });
  
 module.exports = router;
