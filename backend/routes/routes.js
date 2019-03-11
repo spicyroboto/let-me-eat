@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var restriction_controller = require('../backend/Controllers/RestrictionController');
+var restriction_controller = require('../Controllers/RestrictionController.js');
 
 // Middleware to get this shit working
 router.use(function timeLog(req, res, next) {
@@ -14,15 +14,15 @@ router.get('/getRestrictions', function(req, res) {
 })
 
 router.get('/getRestaurants', function (req, res) {
-    res.send("Stub for list of restrictions");
+    restriction_controller.getRestaurants(req, res);
 })
 
 router.get('/getReviews/:restaurantId', function (req, res) {
-    res.send("Stub for list of reviews by restaurant id");
+    restriction_controller.getReviews(req, res);
 })
 
 router.get('/getMenu/:menuId', function (req, res) {
-    res.send("Stub for menu for restaurantby menu id");
+    restriction_controller.getMenu(req, res);
 })
 
 // app.post('/login', function (req, res) {
