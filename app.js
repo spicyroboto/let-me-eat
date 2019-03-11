@@ -1,11 +1,25 @@
 var express = require('express');
 var body_parser = require('body-parser');
+const authRoutes = require('./backend/routes/auth_routes.js')
 const PORT = process.env.PORT || 3000;
 
 // --- INSTANTIATE THE APP
 var app = express();
 
-app.use(express.static(__dirname + '/frontend'));
+// === DATABASE INIT === //
+// var mysql = require('mysql');
+// var connection = mysql.createConnection({
+//     host: 'us-cdbr-iron-east-03.cleardb.net',
+//     user: 'b2b7ed699e4b86',
+//     password: 'edb631a1',
+//     database: 'heroku_e52fec4ca086f6b'
+// });
+// ===================== //
+
+
+
+// ==== Static files ==== //
+app.use(express.static(__dirname + '/frontend'));  // commented out for now to test db connection
 
 // Configure body-parser for express
 app.use(body_parser.urlencoded({ extended: false }));
@@ -17,44 +31,16 @@ app.engine('html', require('ejs').renderFile);
 app.set('frontend', 'html');
 
 // --- ROUTING
-app.use(require('./routes/routes'));
-// var router = express.Router();
+app.use(require('./backend/routes/routes.js'));
 
-// app.get('/getRestrictions', function (req, res) {
-//     res.send("Stub for list of restrictions");
-// })
-
-// app.get('/getRestaurants', function (req, res) {
-//     res.send("Stub for list of restrictions");
-// })
-
-// app.get('/getReviews/:restaurantId', function (req, res) {
-//     res.send("Stub for list of reviews by restaurant id");
-// })
-
-// app.get('/getMenu/:menuId', function (req, res) {
-//     res.send("Stub for menu for restaurantby menu id");
-// })
-
-// app.post('/login', function (req, res) {
-//     var username = req.body.user;
-//     var password = req.body.password;
-//     console.log("username is : " + username + " password is: " + password);
-//     res.send("Stub for login: username/password: " + username + "/" + password);
-// })
-
-// app.post('/signup', function(req, res) {
-//     var email = req.body.email;
-//     var username = req.body.username;
-//     var password = req.body.password;
-// })
+// ===== ROUTES ===== //
+app.use(authRoutes);
 
 
+app.get('/', function(request, response) {
+    response.render('index.html');
+});
 
-// // Home page
-// app.get('/', function (request, response) {
-//     response.render('index.html');
-// });
 
 // --- START THE SERVER 
 var server = app.listen(PORT, function () {
