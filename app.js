@@ -1,20 +1,23 @@
 var express = require('express');
 var body_parser = require('body-parser');
+const passport   = require('passport')
 const authRoutes = require('./backend/routes/auth_routes.js')
 const PORT = process.env.PORT || 3000;
 
 // --- INSTANTIATE THE APP
 var app = express();
 
-// === DATABASE INIT === //
-// var mysql = require('mysql');
-// var connection = mysql.createConnection({
-//     host: 'us-cdbr-iron-east-03.cleardb.net',
-//     user: 'b2b7ed699e4b86',
-//     password: 'edb631a1',
-//     database: 'heroku_e52fec4ca086f6b'
-// });
-// ===================== //
+// Passport Config
+app.use(require('express-session')(
+    {
+        secret: "First time setting up auth using passport",
+        resave: false,
+        saveUninitialized: false
+    }
+));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 
@@ -36,7 +39,7 @@ app.set('frontend', 'html');
 app.use(authRoutes);
 
 
-app.get('/', function(request, response) {
+app.get('/', function (request, response) {
     response.render('index.html');
 });
 
