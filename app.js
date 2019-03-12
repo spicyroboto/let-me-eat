@@ -29,9 +29,9 @@ app.use(body_parser.urlencoded({ extended: false }));
 app.use(body_parser.json());
 
 // --- VIEW LOCATION, SET UP SERVING STATIC HTML
-app.set('frontend', __dirname + '/frontend');
+app.set('views', __dirname + '/frontend/views');
 app.engine('html', require('ejs').renderFile);
-app.set('frontend', 'html');
+app.set('view engine', 'html');
 
 /* Add all routes to their own file then just use
  "app.use([file_name])" */
@@ -41,6 +41,10 @@ app.use(authRoutes);
 
 app.get('/', function (request, response) {
     response.render('index.html');
+});
+
+app.get('/login', function(request, response) {
+    response.render('login.html');
 });
 
 
