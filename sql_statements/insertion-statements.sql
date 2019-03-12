@@ -177,16 +177,6 @@ INSERT INTO Restriction VALUES(7, 'contains meat', 0);
 INSERT INTO Restriction VALUES(8, 'not Halal', 0);
 INSERT INTO Restriction VALUES(9, 'not Kosher', 0);
 
--- later will remove Reliability table
-INSERT INTO Reliability VALUES (0, 0, 'undecided');
-INSERT INTO Reliability VALUES (1, 8, 'unreliable');
-INSERT INTO Reliability VALUES (2, 4, 'unreliable');
-INSERT INTO Reliability VALUES (9, 2, 'may be reliable');
-INSERT INTO Reliability VALUES (300, 1, 'reliable');
-INSERT INTO Reliability VALUES (210, 4, 'reliable');
-INSERT INTO Reliability VALUES (99, 95, 'may be reliable');
-INSERT INTO Reliability VALUES (8, 8, 'undecided');
-
 INSERT INTO Customer_User VALUES('billJoe', 'password134', 0, 'bill@gmail.com');
 INSERT INTO Customer_User VALUES('dairyBoy', 'asdffff', 0, 'milk@yahoo.ca');
 INSERT INTO Customer_User VALUES('imVegan111', '8903hd', 0, 'im.vegan@hotmail.com');
