@@ -1,0 +1,13 @@
+.jumbotron {
+    background: #437f97;
+    height: 500px;
+}
+
+.jumbotron h1{
+    color: #fffffa;
+    font-weight: bolder;
+}
+
+.jumbotron .lead{
+    font-size: medium;
+}
