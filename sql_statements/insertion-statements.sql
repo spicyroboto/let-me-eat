@@ -217,14 +217,14 @@ INSERT INTO DiningType VALUES(1, 'residence dining');
 INSERT INTO DiningType VALUES(2, 'food truck');
 INSERT INTO DiningType VALUES(3, 'campus partner');
 
-INSERT INTO Restaurant_Owner VALUES('bentoOwner', 'adfferg');
-INSERT INTO Restaurant_Owner VALUES('loopOwner', 'sjfle');
-INSERT INTO Restaurant_Owner VALUES('nevilleOwner', 'eres23');
-INSERT INTO Restaurant_Owner VALUES('ocOwner', 'rttf1455');
-INSERT INTO Restaurant_Owner VALUES('feastOwner', '4455$$');
-INSERT INTO Restaurant_Owner VALUES('hnOwner', '46465--');
-INSERT INTO Restaurant_Owner VALUES('tdhOwner', 'slfelfs1222');
-INSERT INTO Restaurant_Owner VALUES('gneOwner', 'qroqoi$$');
+INSERT INTO Owner_User VALUES('bentoOwner', 'adfferg');
+INSERT INTO Owner_User VALUES('loopOwner', 'sjfle');
+INSERT INTO Owner_User VALUES('nevilleOwner', 'eres23');
+INSERT INTO Owner_User VALUES('ocOwner', 'rttf1455');
+INSERT INTO Owner_User VALUES('feastOwner', '4455$$');
+INSERT INTO Owner_User VALUES('hnOwner', '46465--');
+INSERT INTO Owner_User VALUES('tdhOwner', 'slfelfs1222');
+INSERT INTO Owner_User VALUES('gneOwner', 'qroqoi$$');
 
 INSERT INTO Restaurant VALUES(0,	'bento Sushi',	'Japanese',	'bentoOwner',	0);
 INSERT INTO Restaurant VALUES(1,	'the loop cafe',	'Canadian',	'loopOwner',	0);
