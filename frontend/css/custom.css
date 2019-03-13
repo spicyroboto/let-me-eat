@@ -106,13 +106,15 @@ a:hover {
   color: #F58B44;
 }
 
-.btn.signin {
-    border-radius: 60px;
-    padding-top: 5px;
+.btn {
+  border-radius: 60px;
+  padding-top: 5px;
 padding-right: 30px;
 padding-bottom: 7px;
 padding-left: 30px;
-margin-bottom: 20px;
+}
+
+.btn.signin {
 max-width: 330px;
 margin: auto;
 margin-top: 20px;
