@@ -1,3 +1,5 @@
+USE heroku_e52fec4ca086f6b;
+
 INSERT INTO Ingredient VALUES(0, 'milk');
 INSERT INTO Ingredient VALUES(1, 'egg');
 INSERT INTO Ingredient VALUES(2, 'peanut');
@@ -212,19 +214,19 @@ INSERT INTO Address VALUES('2201 Main Mall',	'Vancouver',	'BC',	'V6T1W2');
 INSERT INTO Address VALUES('2203 Main Mall',	'Vancouver',	'BC',	'V6T1W2');
 INSERT INTO Address VALUES('6133 University Boulevard',	'Vancouver',	'BC',	'V6T1E4');
 
-INSERT INTO DiningType VALUES(0, 'cafe');
-INSERT INTO DiningType VALUES(1, 'residence dining');
-INSERT INTO DiningType VALUES(2, 'food truck');
-INSERT INTO DiningType VALUES(3, 'campus partner');
+INSERT INTO Dining_Type VALUES(0, 'cafe');
+INSERT INTO Dining_Type VALUES(1, 'residence dining');
+INSERT INTO Dining_Type VALUES(2, 'food truck');
+INSERT INTO Dining_Type VALUES(3, 'campus partner');
 
-INSERT INTO Owner_User VALUES('bentoOwner', 'adfferg');
-INSERT INTO Owner_User VALUES('loopOwner', 'sjfle');
-INSERT INTO Owner_User VALUES('nevilleOwner', 'eres23');
-INSERT INTO Owner_User VALUES('ocOwner', 'rttf1455');
-INSERT INTO Owner_User VALUES('feastOwner', '4455$$');
-INSERT INTO Owner_User VALUES('hnOwner', '46465--');
-INSERT INTO Owner_User VALUES('tdhOwner', 'slfelfs1222');
-INSERT INTO Owner_User VALUES('gneOwner', 'qroqoi$$');
+INSERT INTO Owner_User VALUES('bentoOwner', 'adfferg', 'bentoBoss@gmail.com');
+INSERT INTO Owner_User VALUES('loopOwner', 'sjfle', 'loopBoss@mail.ubc.ca');
+INSERT INTO Owner_User VALUES('nevilleOwner', 'eres23', 'nevilleMaster@hotmail.com');
+INSERT INTO Owner_User VALUES('ocOwner', 'rttf1455', 'orchardMasterChef@outlook.com');
+INSERT INTO Owner_User VALUES('feastOwner', '4455$$', 'feastOwner@gmail.com');
+INSERT INTO Owner_User VALUES('hnOwner', '46465--', 'hungryN@mail.ubc.ca');
+INSERT INTO Owner_User VALUES('tdhOwner', 'slfelfs1222', 'theDogHouse@gmail.com');
+INSERT INTO Owner_User VALUES('gneOwner', 'qroqoi$$', 'grandNoodleUBC@aol.com');
 
 INSERT INTO Restaurant VALUES(0,	'bento Sushi',	'Japanese',	'bentoOwner',	0);
 INSERT INTO Restaurant VALUES(1,	'the loop cafe',	'Canadian',	'loopOwner',	0);
@@ -235,7 +237,7 @@ INSERT INTO Restaurant VALUES(5,	'Hungry Nomad',	'American',	'hnOwner',	2);
 INSERT INTO Restaurant VALUES(6,	'The Dog House',	'European',	'tdhOwner',	2);
 INSERT INTO Restaurant VALUES(7,	'Grand Noodle Emporium',	'Chinese',	'gneOwner',	3);
 
-INSERT INTO Contact_Info VALUES('6041110000', 'bentoSushi@mail.ubc.ca', '2015 Main Mall', 'Vancouver', 'BC'. 0);
+INSERT INTO Contact_Info VALUES('6041110000', 'bentoSushi@mail.ubc.ca', '2015 Main Mall', 'Vancouver', 'BC', 0);
 INSERT INTO Contact_Info VALUES('6041110001', 'theLoop@mail.ubc.ca', '2260 West Mall', 'Vancouver', 'BC', 1);
 INSERT INTO Contact_Info VALUES('6041110002', 'neville@mail.ubc.ca', '2125 Main Mall', 'Vancouver', 'BC', 2);
 INSERT INTO Contact_Info VALUES('6041110003', 'openKitchen@mail.ubc.ca', '6363 Agrnomy Road', 'Vancouver', 'BC', 3);
@@ -272,11 +274,11 @@ INSERT INTO Offered_Items VALUES(6, 2);
 INSERT INTO Offered_Items VALUES(6, 9);
 INSERT INTO Offered_Items VALUES(7, 10);
 
-INSERT INTO User_Review VALUES (0, 0, 0, 'undecided', 'good restaurant', 2018-10-1, 'billJoe', 0);
-INSERT INTO User_Review VALUES (1, 1, 8, 'unreliable', 'I do not like this one', 2019-1-2, 'dairyBoy', 1);
-INSERT INTO User_Review VALUES (2, 2, 4, 'unreliable', 'I do not like their meat since I am vegan', 2019-2-3, 'imVegan111', 2);
-INSERT INTO User_Review VALUES (3, 9, 2, 'may be reliable', 'I love meat but they do not have much', 2018-5-5. 'John111', 3);
-INSERT INTO User_Review VALUES (4, 300, 1, 'reliable', 'pile of garbage', 2019-2-22, 'manaaa', 4);
-INSERT INTO User_Review VALUES (5, 210, 4, 'reliable', 'their food contains too many allergens', 2019-2-1, 'gordonTheChef', 5);
-INSERT INTO User_Review VALUES (6, 99, 95, 'may be reliable', 'they have too many dishes with peanut', 2018-5-5, 'peanutHater', 6);
-INSERT INTO User_Review VALUES (7, 8, 8, 'undecided', 'their food are just gross', 2019-2-25, 'richKid', 7);
+INSERT INTO User_Review VALUES (0, 0, 0, 'undecided', 'good restaurant', '2018-10-1', 'billJoe', 0);
+INSERT INTO User_Review VALUES (1, 1, 8, 'unreliable', 'I do not like this one', '2019-1-2', 'dairyBoy', 1);
+INSERT INTO User_Review VALUES (2, 2, 4, 'unreliable', 'I do not like their meat since I am vegan', '2019-2-3', 'imVegan111', 2);
+INSERT INTO User_Review VALUES (3, 9, 2, 'may be reliable', 'I love meat but they do not have much', '2018-5-5', 'John111', 3);
+INSERT INTO User_Review VALUES (4, 300, 1, 'reliable', 'pile of garbage', '2019-2-22', 'manaaa', 4);
+INSERT INTO User_Review VALUES (5, 210, 4, 'reliable', 'their food contains too many allergens', '2019-2-1', 'gordonTheChef', 5);
+INSERT INTO User_Review VALUES (6, 99, 95, 'may be reliable', 'they have too many dishes with peanut', '2018-5-5', 'peanutHater', 6);
+INSERT INTO User_Review VALUES (7, 8, 8, 'undecided', 'their food are just gross', '2019-2-25', 'richKid', 7);
