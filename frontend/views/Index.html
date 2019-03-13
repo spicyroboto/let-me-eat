@@ -1,15 +1,15 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
-  <head>
+  <head> -->
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 
     <!-- <link href="css/style.css" rel="stylesheet"> -->
-    <link href="custom.css" rel="stylesheet">
+    <!-- <link href="custom.css" rel="stylesheet">
 
     <title>Food app thing</title>
 
@@ -27,13 +27,17 @@
           <a class="btn btn-outline-light" href="#" role="button">Login</a>
       </nav>
     </div>
-  </header>
+  </header> -->
 
-  <main role="main" class="inner cover">
+  <%- include("header"); %>
+
+  <div id="background"></div>
+
+  <main role="main" class="inner cover homepage">
     <h1>Food you can actually eat</h1>
     <p class="lead">Because no one likes being hungry</p>
     <p class="lead">
-        <a class="btn btn-primary" href="#" role="button">Login</a>
+        <a class="btn btn-primary" href="/login" role="button">Login</a>
     </p>
     <p>Don't have an account yet? <a href="#" class="emphasis">Sign up</a></p>
   </main>
