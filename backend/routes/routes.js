@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var restriction_controller = require('../Controllers/RestrictionController.js');
+var customer_controller = require('../Controllers/CustomerController.js');
 
 // Middleware to get this shit working
 router.use(function timeLog(req, res, next) {
@@ -17,12 +18,31 @@ router.get('/getRestaurants', function (req, res) {
     restriction_controller.getRestaurants(req, res);
 })
 
+// get all reviews a restaurant has
 router.get('/getReviews/:restaurantId', function (req, res) {
-    restriction_controller.getReviews(req, res);
+    let restaurantId = req.params.restaurantId;
+    restriction_controller.getReviews(req, res, restaurantId);
+})
+
+// get all menus a restaurant offers
+router.get('/getMenus/:restaurantId', function (req, res) {
+    let restaurantId = req.params.restaurantId;
+    restriction_controller.getMenu(req, res, restaurantId);
 })
 
 router.get('/getMenu/:menuId', function (req, res) {
-    restriction_controller.getMenu(req, res);
+    let menuId = req.params.menuId;
+    restriction_controller.getMenu(req, res, menuId);
+})
+
+router.get('/getFoodItemsIngredientsByMenu/:menuId', function (req, res) {
+    let menuId = req.params.menuId;
+    restriction_controller.GetFoodItemsOfMenu(req, res, menuId);
+})
+
+router.get('/getReviewsByCustomer/:username', function (req, res) {
+    let username = req.params.username;
+    customer_controller.getReviewsByCustomer(req, res, username);
 })
 
 // app.post('/login', function (req, res) {

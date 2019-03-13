@@ -1,3 +1,5 @@
+USE heroku_e52fec4ca086f6b;
+
 CREATE TABLE Ingredient (
 ingredientId INTEGER PRIMARY KEY,
 ingredientName CHAR(20)
@@ -5,7 +7,7 @@ ingredientName CHAR(20)
 
 CREATE TABLE Food_Item (
 foodItemId INTEGER PRIMARY KEY,
-name CHAR(20),
+name CHAR(100),
 calories INTEGER,
 price REAL
 );
@@ -14,8 +16,8 @@ CREATE TABLE Food_Item_Ingredients (
 foodItemId INTEGER,
 ingredientId INTEGER,
 PRIMARY KEY(foodItemId, ingredientId),
-FOREIGN KEY (foodItemId) REFERENCES Food_Item,
-FOREIGN KEY (ingredientId) REFERENCES Ingredient
+FOREIGN KEY (foodItemId) REFERENCES Food_Item(foodItemId),
+FOREIGN KEY (ingredientId) REFERENCES Ingredient(ingredientId)
 );
 
 CREATE TABLE Menu (
@@ -25,10 +27,10 @@ menuType CHAR(40)
 
 CREATE TABLE Part_Of (
 menuId INTEGER,
-foodId INTEGER,
-PRIMARY KEY(menuId,foodId),
-FOREIGN KEY menuId REFERENCES Menu,
-FOREIGN KEY foodItemId REFERENCES Food_Item
+foodItemId INTEGER,
+PRIMARY KEY(menuId, foodItemId),
+FOREIGN KEY (menuId) REFERENCES Menu(MenuId),
+FOREIGN KEY (foodItemId) REFERENCES Food_Item(foodItemId)
 );
 
 CREATE TABLE Restriction (
@@ -41,24 +43,24 @@ CREATE TABLE Restriction_Applies_To_Food_Item (
 foodItemId INTEGER,
 restrictionId INTEGER,
 PRIMARY KEY(foodItemId, restrictionId),
-FOREIGN KEY (foodItemId) REFERENCES Food_Item,
-FOREIGN KEY (restrictionId) REFERENCES Restriction
+FOREIGN KEY (foodItemId) REFERENCES Food_Item(foodItemId) ON DELETE CASCADE,
+FOREIGN KEY (restrictionId) REFERENCES Restriction(restrictionId) ON DELETE CASCADE
 );
 
 CREATE TABLE Customer_User (
 username CHAR(20) PRIMARY KEY,
 password CHAR(20),
 isVerified BIT,
-email CHAR(40) UNIQUE,
+email CHAR(40) UNIQUE
 );
 
 CREATE TABLE Customer_Cannot_Eat (
 username CHAR(20),
 restrictionId INTEGER,
 PRIMARY KEY(username, restrictionId),
-FOREIGN KEY (username) REFERENCES Customer_User ON DELETE
+FOREIGN KEY (username) REFERENCES Customer_User(username) ON DELETE
 CASCADE,
-FOREIGN KEY (restrictionId) REFERENCES Restriction ON DELETE CASCADE
+FOREIGN KEY (restrictionId) REFERENCES Restriction(restrictionId) ON DELETE CASCADE
 );
 
 CREATE TABLE Address (
@@ -86,8 +88,8 @@ name CHAR(40),
 cuisine CHAR(20),
 username CHAR(20) NOT NULL UNIQUE,
 diningTypeId INTEGER,
-FOREIGN KEY username REFERENCES Owner_User ON DELETE CASCADE,
-FOREIGN KEY diningTypeId REFERENCES Dining_Type
+FOREIGN KEY (username) REFERENCES Owner_User(username) ON DELETE CASCADE,
+FOREIGN KEY (diningTypeId) REFERENCES Dining_Type(diningTypeId)
 );
 
 CREATE TABLE Contact_Info (
@@ -107,8 +109,8 @@ CREATE TABLE Offered_Items (
 restaurantId INTEGER,
 menuId INTEGER,
 PRIMARY KEY (restaurantId, menuId),
-FOREIGN KEY restaurantid REFERENCES Restaurant,
-FOREIGN KEY menuId REFERENCES Menu
+FOREIGN KEY (restaurantid) REFERENCES Restaurant(restaurantId) ON DELETE CASCADE,
+FOREIGN KEY (menuId) REFERENCES Menu(menuId) ON DELETE CASCADE
 );
 
 CREATE TABLE User_Review (
@@ -120,6 +122,6 @@ comments VARCHAR(100),
 datePosted DATE,
 username CHAR(20),
 restaurantId INTEGER,
-FOREIGN KEY username REFERENCES Customer_User(username),
-FOREIGN KEY restaurantId REFERENCES Restaurant(restaurantId),
+FOREIGN KEY (username) REFERENCES Customer_User(username),
+FOREIGN KEY (restaurantId) REFERENCES Restaurant(restaurantId) ON DELETE CASCADE
 );
