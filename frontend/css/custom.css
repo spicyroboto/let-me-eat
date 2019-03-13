@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(img/background.jpg);
+  background-image: url("../img/background.jpg");
   /* background-color: #b2dbbf; */
   background-color: #9bc1bc;
   background-repeat: no-repeat;
