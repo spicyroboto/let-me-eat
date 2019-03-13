@@ -51,6 +51,10 @@ app.get('/', function (request, response) {
 //     response.render('login.html');
 // });
 
+app.get('/createaccount', function (request, response) {
+    response.render('signup.html');
+});
+
 
 // --- START THE SERVER 
 var server = app.listen(PORT, function () {
