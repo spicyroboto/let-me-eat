@@ -53,6 +53,7 @@ INSERT INTO Food_Item_Ingredients VALUES(4, 7);
 INSERT INTO Food_Item_Ingredients VALUES(5, 2);
 INSERT INTO Food_Item_Ingredients VALUES(5, 4);
 INSERT INTO Food_Item_Ingredients VALUES(5, 12);
+INSERT INTO Food_Item_Ingredients VALUES(6, 2);
 INSERT INTO Food_Item_Ingredients VALUES(6, 6);
 INSERT INTO Food_Item_Ingredients VALUES(6, 15);
 INSERT INTO Food_Item_Ingredients VALUES(7, 4);
