@@ -30,8 +30,9 @@ app.set('views', __dirname + '/frontend/views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-/* Add all routes to their own file then just use
- "app.use([file_name])" */
+// --- ROUTING
+app.use(require('./backend/routes/routes.js'));
+
 // ===== ROUTES ===== //
 app.use(authRoutes);
 
