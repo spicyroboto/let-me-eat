@@ -1,21 +1,26 @@
 var express = require('express');
 var body_parser = require('body-parser');
+const passport   = require('passport')
 const authRoutes = require('./backend/routes/auth_routes.js')
+var flash    = require('connect-flash');
 const PORT = process.env.PORT || 3000;
 
 // --- INSTANTIATE THE APP
 var app = express();
 
-// === DATABASE INIT === //
-// var mysql = require('mysql');
-// var connection = mysql.createConnection({
-//     host: 'us-cdbr-iron-east-03.cleardb.net',
-//     user: 'b2b7ed699e4b86',
-//     password: 'edb631a1',
-//     database: 'heroku_e52fec4ca086f6b'
-// });
-// ===================== //
+// Passport Config
+require('./backend/services/auth_service')(passport);
+app.use(require('express-session')(
+    {
+        secret: "First time setting up auth using passport",
+        resave: false,
+        saveUninitialized: false
+    }
+));
 
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());   // displays flash messages in user session
 
 
 // ==== Static files ==== //
@@ -34,16 +39,17 @@ app.set('view engine', 'html');
 app.use(require('./backend/routes/routes.js'));
 
 // ===== ROUTES ===== //
-app.use(authRoutes);
+app.use(authRoutes.router);
+require('./backend/routes/auth_routes').authenticate(passport) // use configured passport to authenticate
 
 
-app.get('/', function(request, response) {
+app.get('/', function (request, response) {
     response.render('index.html');
 });
 
-app.get('/login', function(request, response) {
-    response.render('login.html');
-});
+// app.get('/login', function(request, response) {
+//     response.render('login.html');
+// });
 
 
 // --- START THE SERVER 
