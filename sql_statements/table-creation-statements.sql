@@ -7,7 +7,7 @@ ingredientName CHAR(20)
 
 CREATE TABLE Food_Item (
 foodItemId INTEGER PRIMARY KEY,
-name CHAR(20),
+name CHAR(100),
 calories INTEGER,
 price REAL
 );
