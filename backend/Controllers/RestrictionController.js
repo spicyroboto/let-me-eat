@@ -32,7 +32,7 @@ exports.getMenu = function (req, res, menuId) {
 };
 
 exports.GetFoodItemsOfMenu = function (req, res, menuId) {
-    var query = "select P.menuId, P.foodItemId, F.name as fName, F.calories as cal, F.price from Part_Of P join Food_Item F on F.foodItemId = P.foodItemId join Food_Item_Ingredient Fi on Fi.foodItemId = F.foodItemId join Ingredient I on I.ingredientId = Fi.ingredientId where menuId ="
+    var query = "select P.menuId, P.foodItemId, F.name as fName, F.calories as cal, F.price from Part_Of P join Food_Item F on F.foodItemId = P.foodItemId join Food_Item_Ingredients Fi on Fi.foodItemId = F.foodItemId join Ingredient I on I.ingredientId = Fi.ingredientId where menuId ="
     + menuId;
     db.query(query, function (err, result, fields) {
         if (err) throw err;
