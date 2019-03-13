@@ -2,12 +2,14 @@ var express = require('express');
 var body_parser = require('body-parser');
 const passport   = require('passport')
 const authRoutes = require('./backend/routes/auth_routes.js')
+var flash    = require('connect-flash');
 const PORT = process.env.PORT || 3000;
 
 // --- INSTANTIATE THE APP
 var app = express();
 
 // Passport Config
+require('./backend/services/auth_service')(passport);
 app.use(require('express-session')(
     {
         secret: "First time setting up auth using passport",
@@ -18,7 +20,7 @@ app.use(require('express-session')(
 
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(flash());   // displays flash messages in user session
 
 
 // ==== Static files ==== //
@@ -36,16 +38,17 @@ app.set('view engine', 'html');
 /* Add all routes to their own file then just use
  "app.use([file_name])" */
 // ===== ROUTES ===== //
-app.use(authRoutes);
+app.use(authRoutes.router);
+require('./backend/routes/auth_routes').authenticate(passport) // use configured passport to authenticate
 
 
 app.get('/', function (request, response) {
     response.render('index.html');
 });
 
-app.get('/login', function(request, response) {
-    response.render('login.html');
-});
+// app.get('/login', function(request, response) {
+//     response.render('login.html');
+// });
 
 
 // --- START THE SERVER 
