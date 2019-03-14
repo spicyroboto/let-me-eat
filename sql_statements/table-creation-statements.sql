@@ -39,12 +39,12 @@ name char(20),
 isAllergy BIT
 );
 
-CREATE TABLE Restriction_Applies_To_Food_Item (
-foodItemId INTEGER,
+CREATE TABLE Restriction_Applies_To_Ingredient (
 restrictionId INTEGER,
-PRIMARY KEY(foodItemId, restrictionId),
-FOREIGN KEY (foodItemId) REFERENCES Food_Item(foodItemId) ON DELETE CASCADE,
-FOREIGN KEY (restrictionId) REFERENCES Restriction(restrictionId) ON DELETE CASCADE
+ingredientId INTEGER,
+PRIMARY KEY(restrictionId, ingredientId),
+FOREIGN KEY (restrictionId) REFERENCES Restriction(restrictionId) ON DELETE CASCADE,
+FOREIGN KEY (ingredientId) REFERENCES Ingredient(ingredientId) ON DELETE CASCADE
 );
 
 CREATE TABLE Customer_User (
