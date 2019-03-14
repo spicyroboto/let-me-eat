@@ -117,8 +117,6 @@ FOREIGN KEY (menuId) REFERENCES Menu(menuId) ON DELETE CASCADE
 CREATE TABLE User_Review (
 reviewId INTEGER PRIMARY KEY,
 upvotes INTEGER,
-downvotes INTEGER,
-reliabilityIndex CHAR(20),
 comments VARCHAR(100),
 datePosted DATE,
 username CHAR(20),
