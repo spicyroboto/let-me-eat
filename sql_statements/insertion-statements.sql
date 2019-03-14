@@ -17,6 +17,11 @@ INSERT INTO Ingredient VALUES(13, 'mustard');
 INSERT INTO Ingredient VALUES(14, 'rice');
 INSERT INTO Ingredient VALUES(15, 'butter');
 INSERT INTO Ingredient VALUES(16, 'hot pepper');
+-- ingredients added for shellfish allergy, non-Kosher and Haram
+INSERT INTO Ingredient VALUES(17, 'crab');
+INSERT INTO Ingredient VALUES(18, 'lobster');
+INSERT INTO Ingredient VALUES(19, 'shrimp');
+
 
 INSERT INTO Food_Item VALUES(0, 'Thunder Dog', 700, 9.99);
 INSERT INTO Food_Item VALUES(1, 'UBC Yogurt', 400, 8.99);
@@ -53,6 +58,8 @@ INSERT INTO Food_Item_Ingredients VALUES(4, 7);
 INSERT INTO Food_Item_Ingredients VALUES(5, 2);
 INSERT INTO Food_Item_Ingredients VALUES(5, 4);
 INSERT INTO Food_Item_Ingredients VALUES(5, 12);
+-- now food item #5 has shellfish
+INSERT INTO Food_Item_Ingredients VALUES(5, 17);
 INSERT INTO Food_Item_Ingredients VALUES(6, 2);
 INSERT INTO Food_Item_Ingredients VALUES(6, 6);
 INSERT INTO Food_Item_Ingredients VALUES(6, 15);
@@ -179,6 +186,30 @@ INSERT INTO Restriction VALUES(6, 'eggs', 1);
 INSERT INTO Restriction VALUES(7, 'contains meat', 0);
 INSERT INTO Restriction VALUES(8, 'not Halal', 0);
 INSERT INTO Restriction VALUES(9, 'not Kosher', 0);
+
+INSERT INTO Restriction_applies_to_Ingredient VALUES(0, 12);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(1, 4);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(2, 17);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(2, 18);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(2, 19);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(3, 0);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(3, 6);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(3, 15);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(4, 2);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(5, 3);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(6, 1);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(7, 4);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(7, 7);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(7, 8);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(7, 9);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(8, 7);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(8, 17);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(8, 18);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(8, 19);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(9, 7);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(9, 17);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(9, 18);
+INSERT INTO Restriction_applies_to_Ingredient VALUES(9, 19);
 
 INSERT INTO Customer_User VALUES('billJoe', 'password134', 0, 'bill@gmail.com');
 INSERT INTO Customer_User VALUES('dairyBoy', 'asdffff', 0, 'milk@yahoo.ca');
