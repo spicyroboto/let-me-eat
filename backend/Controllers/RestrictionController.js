@@ -7,7 +7,7 @@ exports.getRestrictions = function (req, res) {
         });
 };
 
-exports.getRestaurants = function (req, res) {
+exports.getAllRestaurants = function (req, res) {
     db.query("SELECT * FROM Restaurant, Dining_Type WHERE Restaurant.diningTypeId = Dining_Type.diningTypeId", 
     function (err, result, fields) {
         if (err) throw err;
