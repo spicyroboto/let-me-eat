@@ -237,14 +237,14 @@ INSERT INTO Customer_Cannot_Eat VALUES('peanutHater', 4);
 INSERT INTO Customer_Cannot_Eat VALUES('richKid', 1);
 INSERT INTO Customer_Cannot_Eat VALUES('richKid', 2);
 
-INSERT INTO Address VALUES('2015 Main Mall',	'Vancouver', 'BC',	'V6T1W1');
-INSERT INTO Address VALUES('2260 West Mall',	'Vancouver', 'BC',	'V6T1Z2');
-INSERT INTO Address VALUES('2125 Main Mall',	'Vancouver', 'BC',	'V6T1W3');
-INSERT INTO Address VALUES('6363 Agrnomy Road',	'Vancouver',	'BC',	'V6T1D5');
-INSERT INTO Address VALUES('2525 West Mall',	'Vancouver',	'BC',	'V6T1Z3');
-INSERT INTO Address VALUES('2201 Main Mall',	'Vancouver',	'BC',	'V6T1W2');
-INSERT INTO Address VALUES('2203 Main Mall',	'Vancouver',	'BC',	'V6T1W2');
-INSERT INTO Address VALUES('6133 University Boulevard',	'Vancouver',	'BC',	'V6T1E4');
+INSERT INTO Address VALUES('2015 Main Mall',	'Vancouver', 'BC',	'V6T1W1', 'UBC');
+INSERT INTO Address VALUES('2260 West Mall',	'Vancouver', 'BC',	'V6T1Z2', 'UBC');
+INSERT INTO Address VALUES('2125 Main Mall',	'Vancouver', 'BC',	'V6T1W3', 'UBC');
+INSERT INTO Address VALUES('6363 Agrnomy Road',	'Vancouver',	'BC',	'V6T1D5', 'UBC');
+INSERT INTO Address VALUES('2525 West Mall',	'Vancouver',	'BC',	'V6T1Z3', 'UBC');
+INSERT INTO Address VALUES('2201 Main Mall',	'Vancouver',	'BC',	'V6T1W2', 'UBC');
+INSERT INTO Address VALUES('2203 Main Mall',	'Vancouver',	'BC',	'V6T1W2', 'UBC');
+INSERT INTO Address VALUES('6133 University Boulevard',	'Vancouver',	'BC',	'V6T1E4', 'UBC');
 
 INSERT INTO Dining_Type VALUES(0, 'cafe');
 INSERT INTO Dining_Type VALUES(1, 'residence dining');

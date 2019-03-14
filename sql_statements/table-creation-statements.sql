@@ -68,6 +68,7 @@ streetName CHAR(100),
 city CHAR(20),
 province CHAR(2),
 postalCode CHAR(6),
+locationTag CHAR(20),
 PRIMARY KEY (streetName, city, province)
 );
 
