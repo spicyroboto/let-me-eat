@@ -306,11 +306,14 @@ INSERT INTO Offered_Items VALUES(6, 2);
 INSERT INTO Offered_Items VALUES(6, 9);
 INSERT INTO Offered_Items VALUES(7, 10);
 
-INSERT INTO User_Review VALUES (0, 0, 'good restaurant', '2018-10-1', 'billJoe', 0);
-INSERT INTO User_Review VALUES (1, 1, 'I do not like this one', '2019-1-2', 'dairyBoy', 1);
-INSERT INTO User_Review VALUES (2, 2,  'I do not like their meat since I am vegan', '2019-2-3', 'imVegan111', 2);
-INSERT INTO User_Review VALUES (3, 9, 'I love meat but they do not have much', '2018-5-5', 'John111', 3);
-INSERT INTO User_Review VALUES (4, 300, 'pile of garbage', '2019-2-22', 'manaaa', 4);
-INSERT INTO User_Review VALUES (5, 210, 'their food contains too many allergens', '2019-2-1', 'gordonTheChef', 5);
-INSERT INTO User_Review VALUES (6, 99, 'they have too many dishes with peanut', '2018-5-5', 'peanutHater', 6);
-INSERT INTO User_Review VALUES (7, 8, 'their food are just gross', '2019-2-25', 'richKid', 7);
+-- reliabilityIndex = 'undecided' for 0<=upvotes<=4
+--                  = 'may be reliable' for 5<=upvotes<=9
+--                  = 'reliable' for upvotes>=10
+INSERT INTO User_Review VALUES (0, 0, 'undecided', 'good restaurant', '2018-10-1', 'billJoe', 0);
+INSERT INTO User_Review VALUES (1, 1, 'undecided', 'I do not like this one', '2019-1-2', 'dairyBoy', 1);
+INSERT INTO User_Review VALUES (2, 2, 'undecided', 'I do not like their meat since I am vegan', '2019-2-3', 'imVegan111', 2);
+INSERT INTO User_Review VALUES (3, 9, 'may be reliable', 'I love meat but they do not have much', '2018-5-5', 'John111', 3);
+INSERT INTO User_Review VALUES (4, 300, 'reliable', 'pile of garbage', '2019-2-22', 'manaaa', 4);
+INSERT INTO User_Review VALUES (5, 210, 'reliable', 'their food contains too many allergens', '2019-2-1', 'gordonTheChef', 5);
+INSERT INTO User_Review VALUES (6, 99, 'reliable', 'they have too many dishes with peanut', '2018-5-5', 'peanutHater', 6);
+INSERT INTO User_Review VALUES (7, 8, 'may be reliable', 'their food are just gross', '2019-2-25', 'richKid', 7);
