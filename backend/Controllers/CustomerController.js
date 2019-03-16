@@ -11,7 +11,35 @@ exports.getReviewsByCustomer = function (req, res, username) {
         });
 };
 
-// exports.setCustomerRestrictions = function (req, res, restrictions) {
-//     var listOfRestrictions = restrictions;
+ exports.postCustomerRestrictions = function (req, res, restrictions, customerUsername) {
+    var listOfRestrictions = restrictions;
+    var tuplesToInsert = "";
+    var i;
+    for (i = 0; i < listOfRestrictions.length; i++) {
+        tuplesToInsert += `('${customerUsername}', '${listOfRestrictions[i]}'),`;
+    }
+    tuplesToInsert = tuplesToInsert.slice(0, -1);
+    var query = "insert into customer_cannot_eat (username, restrictionId) values " + tuplesToInsert;
+    console.log(query);
+    db.query(query, function (err, result, fields) {
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+        res.send(result);
+        });
+}
 
-// }
+exports.postUserReview = function(req, res, customerUsername, content, restaurantId) {
+    var query = `INSERT INTO heroku_e52fec4ca086f6b.user_review
+    (upvotes, reliabilityIndex, comments, datePosted, username, restaurantId)
+    VALUES(0, 'Undecided', '${content}', NOW(), '${customerUsername}', ${restaurantId});`
+    console.log(query);
+    db.query(query, function (err, result, fields) {
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+        res.send(result);
+        });
+}
