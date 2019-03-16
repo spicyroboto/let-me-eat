@@ -6,6 +6,7 @@ app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json({ type: '*/*' }));
 var restriction_controller = require('../Controllers/RestrictionController.js');
 var customer_controller = require('../Controllers/CustomerController.js');
+var owner_controller = require('../Controllers/OwnerController.js');
 
 // Middleware to get this shit working
 router.use(function timeLog(req, res, next) {
@@ -66,6 +67,13 @@ router.post('/postUserReview', function (req, res) {
     let customerUsername = req.body.customerUsername;
     let restaurantId = req.body.restaurantId;
     customer_controller.postUserReview(req, res, customerUsername, content, restaurantId);
+})
+
+// === OWNER ENDPOINTS ===
+
+router.post('/deleteRestaurant', function (req, res){
+    let ownerUsername = req.body.ownerUsername;
+    owner_controller.deleteRestaurant(req, res, ownerUsername);
 })
 
 // app.post('/login', function (req, res) {
