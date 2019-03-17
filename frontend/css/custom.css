@@ -231,3 +231,8 @@ margin-bottom: 20px;
 .checkbox-menu li.active label:focus {
   background-color: #b8b8ff;
 }
+
+
+.bigboy {
+  font-weight: 900;
+}
