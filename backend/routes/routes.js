@@ -85,9 +85,9 @@ router.post('/postUserReview', function (req, res) {
 
 // === OWNER ENDPOINTS ===
 
-router.post('/deleteRestaurant', function (req, res){
-    let ownerUsername = req.body.ownerUsername;
-    owner_controller.deleteRestaurant(req, res, ownerUsername);
+router.post('/deleteRestaurant/:restaurantId', function (req, res){
+    let restaurantId = req.params.restaurantId;
+    owner_controller.deleteRestaurant(req, res, restaurantId);
 })
 
 // app.post('/login', function (req, res) {
