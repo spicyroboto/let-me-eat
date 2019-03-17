@@ -10,49 +10,64 @@ router.get('/db', function (request, response) {
     });
 });
 
-// router.get('/', function(request, response) {
-//     response.render('index.html');
-// });
 
 module.exports = {
     router,
     authenticate: function (passport) {
-        // show the signup form
-        router.get('/signup', function (req, res) {
+        // show the signup form 
+        router.get('/signup-user', function (req, res) {
             // render the page and pass in any flash data if it exists
-            res.render('dummySignUp.ejs', { message: req.flash('signupMessage') });
+            res.render('signup-user.html', { message: req.flash('signupMessage') });
         });
 
-        // process the signup form
-        router.post('/signup', passport.authenticate('local-signup', {
-            successRedirect: '/', // redirect to the secure profile section
-            failureRedirect: '/signup', 
+        // process the signup form for new customer
+        router.post('/signup-user', passport.authenticate('local-signup-user', {
+            successRedirect: '/restrictions', // redirect to the secure profile section
+            failureRedirect: '/signup-user',
             failureFlash: true // allow flash messages
         }));
 
-    // Login
-	// show the login form
-	router.get('/login', function(req, res) {
+        // show the signup form 
+        router.get('/signup-owner', function (req, res) {
+            // render the page and pass in any flash data if it exists
+            res.render('signup-owner.html', { message: req.flash('signupMessage') });
+        });
 
-		// render the page and pass in any flash data if it exists
-		res.render('login.html', { message: req.flash('loginMessage') });
-	});
+        // process the signup form for new restaurant owner
+        router.post('/signup-owner', passport.authenticate('local-signup-owner', {
+            successRedirect: '/main', // redirect to the secure profile section
+            failureRedirect: '/signup-owner',
+            failureFlash: true // allow flash messages
+        }));
 
-	// process the login form
-	router.post('/login', passport.authenticate('local-login', {
-            successRedirect : '/', // redirect to the secure profile section
-            failureRedirect : '/login', // redirect back to the signup page if there is an error
-            failureFlash : true // allow flash messages
-		}),
-        function(req, res) {
-            if (req.body.remember) {
-              req.session.cookie.maxAge = 1000 * 60 * 3;
-            } else {
-              req.session.cookie.expires = false;
-            }
-        res.redirect('/');
-    });
-    }
+        // Login
+        // show the login form
+        router.get('/login', function (req, res) {
+            // render the page and pass in any flash data if it exists
+            res.render('login.html', { message: req.flash('loginMessage') });
+        });
+
+        // process the login form
+        router.post('/login', passport.authenticate('local-login', {
+            successRedirect: '/main', // redirect to the secure profile section
+            failureRedirect: '/login', // redirect back to the signup page if there is an error
+            failureFlash: true // allow flash messages
+        }),
+            function (req, res) {
+                if (req.body.remember) {
+                    req.session.cookie.maxAge = 1000 * 60 * 3;
+                } else {
+                    req.session.cookie.expires = false;
+                }
+                res.redirect('/');
+            });
+    },
+    isLoggedIn: function(req, res, next){
+        if(req.isAuthenticated()) {
+          return next();
+        }
+        res.redirect('/login');
+      }
 }
 
 
