@@ -30,6 +30,11 @@ router.get('/getAllRestaurantNames', function (req, res) {
     restriction_controller.getAllRestaurantNames(req, res);
 })
 
+router.get('/getRestaurantsByLocationTag/:locationTag', function (req, res) {
+    var locationTag = req.params.locationTag;
+    restriction_controller.getRestaurantsByLocationTag(req, res, locationTag);
+})
+
 // get all reviews a restaurant has
 router.get('/getReviews/:restaurantId', function (req, res) {
     let restaurantId = req.params.restaurantId;
