@@ -7,6 +7,8 @@
 <script src="views/Restrictions.js"></script>
 <script src="views/renderRestaurants.js"></script>
 
+<div id="background"></div>
+
 <div class="container landing">
     <div class="styling">
     <!-- SEARCH BAR -->
@@ -14,6 +16,7 @@
         <div class="col-md-1">
         </div>
         <div class="col-md-10">
+            <h3 class="mb-4">Find your next great meal</h3>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <button class="btn btn-primary" type="button" id="button-addon1">Search</button>
@@ -94,22 +97,23 @@ Filter by price:
         </div>
 
             <script type="text/javascript">
-$(".phoneNo").keyup(function() {
-    let val = $(this).val();
-    if(val.length > 5) {
-        let digits = val.split(/(\d{1,5})/);
-        let str = "";
-        for (let group of digits)
-        {
-          if (/^\d+$/.test(group))
-          {
-            str += group + "-";
-          }
-        }
-        str = str.substring(0, str.length - 1);
-        $(this).val(str);
-    }
-});</script>
+// $(".phoneNo").keyup(function() {
+//     let val = $(this).val();
+//     if(val.length > 5) {
+//         let digits = val.split(/(\d{1,5})/);
+//         let str = "";
+//         for (let group of digits)
+//         {
+//           if (/^\d+$/.test(group))
+//           {
+//             str += group + "-";
+//           }
+//         }
+//         str = str.substring(0, str.length - 1);
+//         $(this).val(str);
+//     }
+// });
+</script>
 
 
 

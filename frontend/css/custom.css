@@ -53,6 +53,17 @@ width: 100%;
 .card {
   text-align: left;
   margin: 1rem;
+  /* background-color: rgba(0, 123, 255, .1); */
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.card-header {
+  text-transform: uppercase;
+}
+
+.restaurantHeader {
+  font-weight: 600;
+  margin-bottom: .5rem;
 }
 
 .search {
