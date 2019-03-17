@@ -31,7 +31,7 @@ exports.getReviewsByCustomer = function (req, res, username) {
 }
 
 exports.postUserReview = function(req, res, customerUsername, content, restaurantId) {
-    var query = `INSERT INTO heroku_e52fec4ca086f6b.user_review
+    var query = `INSERT INTO user_review
     (upvotes, reliabilityIndex, comments, datePosted, username, restaurantId)
     VALUES(0, 'Undecided', '${content}', NOW(), '${customerUsername}', ${restaurantId});`
     console.log(query);
@@ -42,4 +42,8 @@ exports.postUserReview = function(req, res, customerUsername, content, restauran
         }
         res.send(result);
         });
+}
+
+exports.getMostReliableReview = function(req, res, restaurantId) {
+    var query = `select * from user_review where ALL ()`;
 }

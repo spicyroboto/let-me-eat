@@ -8,8 +8,29 @@ exports.getRestrictions = function (req, res) {
 };
 
 exports.getAllRestaurants = function (req, res) {
-    db.query("SELECT * FROM Restaurant, Dining_Type WHERE Restaurant.diningTypeId = Dining_Type.diningTypeId", 
+    var query = `SELECT r.name, r.cuisine, r.username as owner, dt.diningTypeName,
+     c.phoneNo, c.email, c.streetName, c.city, c.province
+    FROM Restaurant r
+    join dining_type dt on dt.diningTypeId = r.diningTypeId
+    join contact_info c on c.restaurantId = r.restaurantId`
+    db.query(query, function (err, result, fields) {
+        if (err) throw err;
+        res.send(result);
+        });
+
+};
+
+exports.getAllRestaurantNames = function (req, res) {
+    db.query("SELECT name FROM Restaurant", 
     function (err, result, fields) {
+        if (err) throw err;
+        res.send(result);
+        });
+};
+
+exports.getAllRestaurantById = function (req, res, restaurantId) {
+    var query = `SELECT * from Restaurant where restaurantId = ${restaurantId}`;
+    db.query(query, function (err, result, fields) {
         if (err) throw err;
         res.send(result);
         });
@@ -39,4 +60,19 @@ exports.GetFoodItemsOfMenu = function (req, res, menuId) {
         res.send(result);
         });
 };
+
+exports.GetRestaurantsWithAvgMenuPrice = function (req, res, avgPrice)  {
+    var query = `select o.restaurantId, p.menuId, avg(f.price) as avgPriceOfMenu
+    from part_of p
+    join food_item f on p.foodItemId = f.foodItemId
+    join offered_items o on p.menuId = o.menuId
+    group by o.restaurantId, p.menuId
+    having avg(f.price) < ${avgPrice}`;
+    db.query(query, function (err, result, fields) {
+        if (err) throw err;
+        res.send(result);
+        });
+}
+
+
 
