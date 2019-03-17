@@ -1,46 +1,26 @@
+<%- include("header"); %>
+
+<form class="form-signin login-background">
+  <h1 class="h3 mb-5 font-weight-normal">Welcome to the family!</h1>
+  <h5>What type of user you are:</h3>
+
+    <div class="signup">
+      <a class="btn btn-primary" href="/signup-user" role="button">General User</a>
+      <a class="btn btn-primary" href="#" role="button">Restaurant Owner</a>
+    </div>
+
+    <p>Already have an account? <a href="/login" class="emphasis">Login</a></p>
+</form>
+</div>
 
 
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
 
-        <%- include("header"); %>
-
-        <form class="form-signin login-background">
-      <h1 class="h3 mb-5 font-weight-normal">Create a new account</h1>
-
-
-
-
-      <label for="inputUsername" class="sr-only">Username</label>
-      <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      <label for="inputPassword" class="sr-only">Confirm password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Confirm password" required>
-      <div class="form-check form-check-inline signup">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-          <label class="form-check-label" for="exampleRadios1">
-            Restaurant Owner
-          </label>
-        </div>
-        <div class="form-check form-check-inline signup">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-              General User
-            </label>
-          </div>
-      
-          <button class="btn btn-lg btn-primary btn-block signin" type="submit">Sign in</button>
-      <p>Already have an account? <a href="/login" class="emphasis">Login</a></p>
-    </form>
-
-<p>Extra bullshit here</p>
-  </div>
-
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
 </html>

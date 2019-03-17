@@ -55,6 +55,18 @@ app.get('/createaccount', function (request, response) {
     response.render('signup.html');
 });
 
+app.get('/signup-user', function (request, response) {
+    response.render('signup-user.html');
+});
+
+app.get('/restrictions', function (request, response) {
+    response.render('user-restrictions.html');
+});
+
+app.get('/main', function (request, response) {
+    response.render('main.html');
+});
+
 
 // --- START THE SERVER 
 var server = app.listen(PORT, function () {

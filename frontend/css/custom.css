@@ -24,13 +24,39 @@ body {
   display: flex;
   background-color: #8ED1CD;
   text-align: center;
-  align-items: center;
   color: #5a6175;
   padding-bottom: 100px;
 }
 
-.signup {
-  margin-bottom: 20px;
+.homepage {
+height: auto;
+left: 30%;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+width: 100%;
+}
+
+.landing {
+  padding-top: 8rem;
+}
+
+.styling {
+  background-color: #fff;
+  min-width: 400px;
+  border-radius: 4px;
+  padding: 2rem;
+}
+
+.card {
+  text-align: left;
+}
+
+.search {
+  border-top-right-radius: 60px;
+border-bottom-right-radius: 60px;
 }
 
 .form-signin {
@@ -38,6 +64,12 @@ body {
   margin: auto;
   max-width: 400px;
   align-items: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
 }
 .form-signin .form-control {
   position: relative;
@@ -95,6 +127,12 @@ body {
   color: #fff !important;
 }
 
+
+.signup {
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
 /*
  * Globals
  */
@@ -113,6 +151,8 @@ padding-right: 30px;
 padding-bottom: 7px;
 padding-left: 30px;
 }
+
+.btn 
 
 .btn.signin {
 max-width: 330px;
@@ -141,7 +181,6 @@ margin-bottom: 20px;
 }
 
 
-
 /*
  * Footer
  */
@@ -149,3 +188,34 @@ margin-bottom: 20px;
   color: rgba(255, 255, 255, .5);
 }
 
+.checkbox-menu li label {
+  display: block;
+  padding: 3px 10px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
+  margin:0;
+  transition: background-color .4s ease;
+}
+.checkbox-menu li input {
+  margin: 0px 5px;
+  top: 2px;
+  position: relative;
+}
+
+.checkbox-menu li.active label {
+  background-color: #cbcbff;
+  font-weight:bold;
+}
+
+.checkbox-menu li label:hover,
+.checkbox-menu li label:focus {
+  background-color: #f5f5f5;
+}
+
+.checkbox-menu li.active label:hover,
+.checkbox-menu li.active label:focus {
+  background-color: #b8b8ff;
+}
