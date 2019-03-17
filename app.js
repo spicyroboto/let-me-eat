@@ -44,6 +44,7 @@ require('./backend/routes/auth_routes').authenticate(passport) // use configured
 
 
 app.get('/', function (request, response) {
+    console.log(request.body);
     response.render('index.html');
 });
 
@@ -55,11 +56,11 @@ app.get('/createaccount', function (request, response) {
     response.render('signup.html');
 });
 
-app.get('/signup-user', function (request, response) {
-    response.render('signup-user.html');
-});
+// app.get('/signup-user', function (request, response) {
+//     response.render('signup-user.html');
+// });
 
-app.get('/restrictions', function (request, response) {
+app.get('/restrictions', authRoutes.isLoggedIn, function (request, response) {
     response.render('user-restrictions.html');
 });
 

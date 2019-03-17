@@ -11,12 +11,14 @@ module.exports = function(passport) {
 
     // used to serialize the user for the session
     passport.serializeUser(function(user, done) {
-        done(null, user.id);
+        console.log(user);
+        done(null, user.email);
     });
 
     // used to deserialize the user
-    passport.deserializeUser(function(id, done) {
-        db.query("SELECT * FROM users WHERE id = ? ",[id], function(err, rows){
+    passport.deserializeUser(function(email, done) {
+        db.query("SELECT email FROM customer_user WHERE email = ? UNION SELECT email FROM owner_user WHERE email = ?",
+        [email, email], function(err, rows){
             done(err, rows[0]);
         });
     });
@@ -28,17 +30,18 @@ module.exports = function(passport) {
     // by default, if there was no name, it would just be called 'local'
 
     passport.use(
-        'local-signup',
+        'local-signup-user',
         new LocalStrategy({
             // by default, local strategy uses username and password, we will override with email
             usernameField : 'email',
             passwordField : 'password',
             passReqToCallback : true // allows us to pass back the entire request to the callback
         },
-        function(req, username, password, done) {
+        function(req, email, password, done) {
+            let username = req.body.username
             // find a user whose email is the same as the forms email
             // we are checking to see if the user trying to login already exists
-            db.query("SELECT * FROM users WHERE email = ?",[username], function(err, rows) {
+            db.query("SELECT * FROM customer_user WHERE email = ?",[email], function(err, rows) {
                 if (err)
                     return done(err);
                 if (rows.length) {
@@ -47,15 +50,51 @@ module.exports = function(passport) {
                     // if there is no user with that username create the user
                     var newUserMysql = {
                         username: username,
+                        email: email,
                         password: bcrypt.hashSync(password, null, null)  // hashes password
                     };
 
-                    var insertQuery = "INSERT INTO users ( email, password ) values (?,?)";
+                    var insertQuery = "INSERT INTO customer_user ( username, email, password ) values (?,?,?)";
 
-                    db.query(insertQuery,[newUserMysql.username, newUserMysql.password],function(err, rows) {
+                    db.query(insertQuery,[newUserMysql.username, newUserMysql.email, newUserMysql.password],function(err, rows) {
                         if (err) return done(err);
-                        newUserMysql.id = rows.insertId;
 
+                        return done(null, newUserMysql);
+                    });
+                }
+            });
+        })
+    );
+
+    passport.use(
+        'local-signup-owner',
+        new LocalStrategy({
+            // by default, local strategy uses username and password, we will override with email
+            usernameField : 'email',
+            passwordField : 'password',
+            passReqToCallback : true // allows us to pass back the entire request to the callback
+        },
+        function(req, email, password, done) {
+            let username = req.body.username
+            // find a user whose email is the same as the forms email
+            // we are checking to see if the user trying to login already exists
+            db.query("SELECT * FROM owner_user WHERE email = ?",[email], function(err, rows) {
+                if (err)
+                    return done(err);
+                if (rows.length) {
+                    return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
+                } else {
+                    // if there is no user with that username create the user
+                    var newUserMysql = {
+                        username: username,
+                        email: email,
+                        password: bcrypt.hashSync(password, null, null)  // hashes password
+                    };
+
+                    var insertQuery = "INSERT INTO owner_user ( username, email, password ) values (?,?,?)";
+
+                    db.query(insertQuery,[newUserMysql.username, newUserMysql.email, newUserMysql.password],function(err, rows) {
+                        if (err) return done(err);
                         return done(null, newUserMysql);
                     });
                 }
@@ -75,11 +114,14 @@ module.exports = function(passport) {
             passwordField : 'password',
             passReqToCallback : true // allows us to pass back the entire request to the callback
         },
-        function(req, username, password, done) { // callback with email and password from our form
-            db.query("SELECT * FROM users WHERE email = ?",[username], function(err, rows){
+        function(req, email, password, done) { // callback with email and password from our form
+            db.query("SELECT email, password FROM customer_user WHERE email = ? UNION SELECT email, password FROM owner_user WHERE email = ?",
+            [email, email], function(err, rows){
+                console.log(rows);
                 if (err)
                     return done(err);
                 if (!rows.length) {
+                    console.log('no user found')
                     return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
                 }
 
