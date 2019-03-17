@@ -259,9 +259,12 @@ INSERT INTO Owner_User VALUES('feastOwner', '4455$$', 'feastOwner@gmail.com');
 INSERT INTO Owner_User VALUES('hnOwner', '46465--', 'hungryN@mail.ubc.ca');
 INSERT INTO Owner_User VALUES('tdhOwner', 'slfelfs1222', 'theDogHouse@gmail.com');
 INSERT INTO Owner_User VALUES('gneOwner', 'qroqoi$$', 'grandNoodleUBC@aol.com');
+-- following tuples are added for restaurants in Wesbrook Village
+INSERT INTO Owner_User VALUES('nckOwner', 'aeiou123', 'nepchikitch@gmail.com');
+INSERT INTO Owner_User VALUES('togosOwner', 'sfs11##', 'contact@togosushi.ca');
 
-INSERT INTO Restaurant VALUES(0,	'bento Sushi',	'Japanese',	'bentoOwner',	0);
-INSERT INTO Restaurant VALUES(1,	'the loop cafe',	'Canadian',	'loopOwner',	0);
+INSERT INTO Restaurant VALUES(0,	'Bento Sushi',	'Japanese',	'bentoOwner',	0);
+INSERT INTO Restaurant VALUES(1,	'The Loop Cafe',	'Canadian',	'loopOwner',	0);
 INSERT INTO Restaurant VALUES(2,	'Neville Cafe',	'American',	'nevilleOwner',	0);
 INSERT INTO Restaurant VALUES(3,	'Open Kitchen',	'International',	'ocOwner',	1);
 INSERT INTO Restaurant VALUES(4,	'Feast',	'International',	'feastOwner',	1);
