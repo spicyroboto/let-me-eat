@@ -26,6 +26,10 @@ router.get('/getAllRestaurants', function (req, res) {
     restriction_controller.getAllRestaurants(req, res);
 })
 
+router.get('/getAllRestaurantNames', function (req, res) {
+    restriction_controller.getAllRestaurantNames(req, res);
+})
+
 // get all reviews a restaurant has
 router.get('/getReviews/:restaurantId', function (req, res) {
     let restaurantId = req.params.restaurantId;
@@ -46,6 +50,11 @@ router.get('/getMenu/:menuId', function (req, res) {
 router.get('/getFoodItemsIngredientsByMenu/:menuId', function (req, res) {
     let menuId = req.params.menuId;
     restriction_controller.GetFoodItemsOfMenu(req, res, menuId);
+})
+
+router.get('/getRestaurantsWithAvgMenuPrice/:avgPrice', function (req, res) {
+    let avgPrice = req.params.avgPrice;
+    restriction_controller.GetRestaurantsWithAvgMenuPrice(req, res, avgPrice);
 })
 
 // === CUSTOMER ENDPOINTS ===
