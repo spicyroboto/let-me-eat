@@ -52,6 +52,7 @@ width: 100%;
 
 .card {
   text-align: left;
+  margin: 1rem;
 }
 
 .search {

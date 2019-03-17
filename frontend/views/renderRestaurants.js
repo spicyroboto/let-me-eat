@@ -38,14 +38,31 @@ function renderRestaurants(restaurant) {
     </div>
     <div class="card-body">
       <p class="card-text">
-      ${restaurant["cuisine"]}<br>
-      ${restaurant["diningTypeName"]}
+      <div class="row">
+      <div class="col-md-4">
+      
+      Cuisine Type: ${restaurant["cuisine"]}<br>
+      Dining Type: ${restaurant["diningTypeName"]}<br>
+      </div>
+      <div class="col-md-8">
+
+      <b>Contact info</b><br>
+      <text class="phoneNo">${restaurant["phoneNo"]}</text><br>
+      ${restaurant["email"]}<br>
+      ${restaurant["streetName"]},
+      ${restaurant["city"]},
+      ${restaurant["province"]}<br>
+      </div>
+      </div>
+
+
+
+
       </p>
     </div>
   </div>`
 
     $(".restaurants").append(html);
-
 }
                    
                    
