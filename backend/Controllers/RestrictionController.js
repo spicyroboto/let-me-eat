@@ -41,8 +41,26 @@ exports.getAllRestaurantNames = function (req, res) {
         });
 };
 
-exports.getAllRestaurantById = function (req, res, restaurantId) {
+exports.getRestaurantById = function (req, res, restaurantId) {
     var query = `SELECT * from Restaurant where restaurantId = ${restaurantId}`;
+    db.query(query, function (err, result, fields) {
+        if (err) throw err;
+        res.send(result);
+        });
+};
+
+exports.getRestaurantsWithAtLeastXItemsCustomerCanEat = function (req, res, username, numItems) {
+    var query = `select rrv.restaurantId, rrv.name, rrv.cuisine, rrv.Owner, rrv.diningTypeName,
+    rrv.phoneNo, rrv.email, rrv.streetName, rrv.city, rrv.province, rrv.postalCode, rrv.locationTag,
+    count(distinct(foodItemId)) as numberOfFoodItemsICanEat
+    from restaurantRestrictionsView rrv
+    where restrictionId not in (
+        select crv.restrictionId
+        from customerRestrictionsView crv
+        where username = '${username}'
+    )
+    group by rrv.restaurantId
+    having count(distinct(foodItemId)) > ${numItems}`;
     db.query(query, function (err, result, fields) {
         if (err) throw err;
         res.send(result);
