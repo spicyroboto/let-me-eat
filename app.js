@@ -21,6 +21,14 @@ app.use(require('express-session')(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());   // displays flash messages in user session
+// app.use((req, res, next) => {
+//     if(req.user) {
+//         db.query("SELECT email FROM customer_user WHERE email = ? UNION SELECT email FROM owner_user WHERE email = ?",
+//         [req.user, req.user], function(err, rows){
+//             done(err, rows[0]);
+//         });
+//     }
+// })
 
 
 // ==== Static files ==== //
@@ -65,6 +73,7 @@ app.get('/restrictions', authRoutes.isLoggedIn, function (request, response) {
 });
 
 app.get('/main', function (request, response) {
+    if(request.user) console.log(JSON.stringify(request.user))
     response.render('main.html');
 });
 

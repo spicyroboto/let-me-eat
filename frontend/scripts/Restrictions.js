@@ -24,8 +24,10 @@ getRestrictions();
 
 
 
+
 function appendSpaceItems() {
 	items.forEach(function(item) {
+    console.log(item);
 	    renderItem(item);
 	})
 }
@@ -33,7 +35,7 @@ function appendSpaceItems() {
 function renderItem(item) {
 
     let html =  `<div class="form-check form-check-inline">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="${item["name"]}" value="${item["restrictionId"]}">
     <label class="form-check-label" for="inlineCheckbox1"> ${item["name"]}</label>
   </div>`
 
@@ -41,7 +43,7 @@ function renderItem(item) {
 
     let html2 = `                    <li>
     <label>
-        <input type="checkbox"> ${item["name"]}
+        <input type="checkbox" name="${item["name"]}" value="${item["restrictionid"]}"> ${item["name"]}
     </label>
 </li>`
 

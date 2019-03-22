@@ -12,11 +12,11 @@ exports.getReviewsByCustomer = function (req, res, username) {
 };
 
  exports.postCustomerRestrictions = function (req, res, restrictions, customerUsername) {
-    var listOfRestrictions = restrictions;
+    var listOfRestrictions = Object.values(restrictions);
     var tuplesToInsert = "";
     var i;
     for (i = 0; i < listOfRestrictions.length; i++) {
-        tuplesToInsert += `('${customerUsername}', '${listOfRestrictions[i]}'),`;
+        tuplesToInsert += `('${customerUsername}', ${listOfRestrictions[i]}),`;
     }
     tuplesToInsert = tuplesToInsert.slice(0, -1);
     var query = "insert into customer_cannot_eat (username, restrictionId) values " + tuplesToInsert;
@@ -26,7 +26,6 @@ exports.getReviewsByCustomer = function (req, res, username) {
             console.log(err);
             throw err;
         }
-        res.send(result);
         });
 }
 

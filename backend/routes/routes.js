@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var app = express();
-app.use(bodyParser.urlencoded({'extended':'true'})); 
+app.use(bodyParser.urlencoded({ 'extended': 'true' }));
 app.use(bodyParser.json({ type: '*/*' }));
 var restriction_controller = require('../Controllers/RestrictionController.js');
 var customer_controller = require('../Controllers/CustomerController.js');
@@ -12,13 +12,13 @@ var owner_controller = require('../Controllers/OwnerController.js');
 router.use(function timeLog(req, res, next) {
     console.log('Time: ', Date.now());
     next();
-  });
+});
 
 
 
 // ===Restriction Endpoints ===
 
-router.get('/getRestrictions', function(req, res) {
+router.get('/getRestrictions', function (req, res) {
     restriction_controller.getRestrictions(req, res);
 })
 
@@ -70,10 +70,11 @@ router.get('/getReviewsByCustomer/:username', function (req, res) {
 });
 
 router.post('/postCustomerRestrictions', function (req, res) {
-    let body = req.body.restrictions;
-    let customerUsername = req.body.customerUsername;
-    console.log("body: " + body);
-    customer_controller.postCustomerRestrictions(req, res, body, customerUsername)
+    let restrictions = req.body
+    let custUsername = req.user.username;
+    // console.log("body: " + JSON.stringify(body));
+    customer_controller.postCustomerRestrictions(req, res, restrictions, custUsername)
+    res.redirect('/main');
 });
 
 router.post('/postUserReview', function (req, res) {
@@ -85,7 +86,7 @@ router.post('/postUserReview', function (req, res) {
 
 // === OWNER ENDPOINTS ===
 
-router.post('/deleteRestaurant/:restaurantId', function (req, res){
+router.post('/deleteRestaurant/:restaurantId', function (req, res) {
     let restaurantId = req.params.restaurantId;
     owner_controller.deleteRestaurant(req, res, restaurantId);
 })

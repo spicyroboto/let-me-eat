@@ -14,6 +14,12 @@ router.get('/db', function (request, response) {
 module.exports = {
     router,
     authenticate: function (passport) {
+        // determine which user to create
+        router.get('/signup', function (req, res) {
+            // render the page and pass in any flash data if it exists
+            res.render('signup.html');
+        });
+
         // show the signup form 
         router.get('/signup-user', function (req, res) {
             // render the page and pass in any flash data if it exists

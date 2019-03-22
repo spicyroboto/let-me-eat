@@ -11,13 +11,13 @@ module.exports = function(passport) {
 
     // used to serialize the user for the session
     passport.serializeUser(function(user, done) {
-        console.log(user);
+        console.log("SERIALZE:" + JSON.stringify(user));
         done(null, user.email);
     });
 
     // used to deserialize the user
     passport.deserializeUser(function(email, done) {
-        db.query("SELECT email FROM customer_user WHERE email = ? UNION SELECT email FROM owner_user WHERE email = ?",
+        db.query("SELECT username FROM customer_user WHERE email = ? UNION SELECT username FROM owner_user WHERE email = ?",
         [email, email], function(err, rows){
             done(err, rows[0]);
         });
@@ -117,7 +117,6 @@ module.exports = function(passport) {
         function(req, email, password, done) { // callback with email and password from our form
             db.query("SELECT email, password FROM customer_user WHERE email = ? UNION SELECT email, password FROM owner_user WHERE email = ?",
             [email, email], function(err, rows){
-                console.log(rows);
                 if (err)
                     return done(err);
                 if (!rows.length) {
