@@ -448,42 +448,43 @@ INSERT INTO Contact_Info VALUES('6042220001', 'contact@togosushi.ca', '3380 Shru
 INSERT INTO Contact_Info VALUES('6043330000', 'alBasha@alBasha.com', '1937 Cornwall Ave', 'Vancouver', 'BC', 10);
 INSERT INTO Contact_Info VALUES('6043330001', 'contact@bananaleaf.ca', '3005 W. Broadway', 'Vancouver', 'BC', 11);
 
+-- some tuples are temporarily removed to make implicit 1:many relationship for Restaurant:Menu
 INSERT INTO Offered_Items VALUES(0, 5);
-INSERT INTO Offered_Items VALUES(0, 9);
-INSERT INTO Offered_Items VALUES(1, 0);
-INSERT INTO Offered_Items VALUES(1, 1);
+--INSERT INTO Offered_Items VALUES(0, 9);
+--INSERT INTO Offered_Items VALUES(1, 0);
+I--NSERT INTO Offered_Items VALUES(1, 1);
 INSERT INTO Offered_Items VALUES(1, 9);
-INSERT INTO Offered_Items VALUES(2, 0);
+--INSERT INTO Offered_Items VALUES(2, 0);
 INSERT INTO Offered_Items VALUES(2, 2);
-INSERT INTO Offered_Items VALUES(2, 9);
-INSERT INTO Offered_Items VALUES(3, 0);
-INSERT INTO Offered_Items VALUES(3, 1);
-INSERT INTO Offered_Items VALUES(3, 2);
-INSERT INTO Offered_Items VALUES(3, 3);
+--INSERT INTO Offered_Items VALUES(2, 9);
+--INSERT INTO Offered_Items VALUES(3, 0);
+--INSERT INTO Offered_Items VALUES(3, 1);
+--INSERT INTO Offered_Items VALUES(3, 2);
+--INSERT INTO Offered_Items VALUES(3, 3);
 INSERT INTO Offered_Items VALUES(3, 6);
-INSERT INTO Offered_Items VALUES(3, 8);
-INSERT INTO Offered_Items VALUES(3, 9);
-INSERT INTO Offered_Items VALUES(4, 0);
-INSERT INTO Offered_Items VALUES(4, 1);
-INSERT INTO Offered_Items VALUES(4, 2);
-INSERT INTO Offered_Items VALUES(4, 5);
+--INSERT INTO Offered_Items VALUES(3, 8);
+--INSERT INTO Offered_Items VALUES(3, 9);
+--INSERT INTO Offered_Items VALUES(4, 0);
+--INSERT INTO Offered_Items VALUES(4, 1);
+--INSERT INTO Offered_Items VALUES(4, 2);
+--INSERT INTO Offered_Items VALUES(4, 5);
 INSERT INTO Offered_Items VALUES(4, 7);
-INSERT INTO Offered_Items VALUES(4, 8);
-INSERT INTO Offered_Items VALUES(4, 9);
-INSERT INTO Offered_Items VALUES(5, 2);
+--INSERT INTO Offered_Items VALUES(4, 8);
+--INSERT INTO Offered_Items VALUES(4, 9);
+--INSERT INTO Offered_Items VALUES(5, 2);
 INSERT INTO Offered_Items VALUES(5, 11);
-INSERT INTO Offered_Items VALUES(6, 2);
+--INSERT INTO Offered_Items VALUES(6, 2);
 INSERT INTO Offered_Items VALUES(6, 9);
 INSERT INTO Offered_Items VALUES(7, 10);
 -- following tuples are added for restaurants in Wesbrook Village
-INSERT INTO Offered_Items VALUES(8, 12);
+--INSERT INTO Offered_Items VALUES(8, 12);
 INSERT INTO Offered_Items VALUES(8, 13);
-INSERT INTO Offered_Items VALUES(9, 14);
+--INSERT INTO Offered_Items VALUES(9, 14);
 INSERT INTO Offered_Items VALUES(9, 15);
 -- following tuples are added for restaurants in Kitsilano
-INSERT INTO Offered_Items VALUES(10, 16);
+--INSERT INTO Offered_Items VALUES(10, 16);
 INSERT INTO Offered_Items VALUES(10, 17);
-INSERT INTO Offered_Items VALUES(11, 18);
+--INSERT INTO Offered_Items VALUES(11, 18);
 INSERT INTO Offered_Items VALUES(11, 19);
 
 -- reliabilityIndex = 'undecided' for 0<=upvotes<=4
