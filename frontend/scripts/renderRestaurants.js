@@ -1,5 +1,4 @@
-                   
-
+ 
 let restaurants = null;
 
 let username = document.getElementById("username").value;
@@ -33,7 +32,7 @@ function appendRestaurantItems() {
 function renderRestaurants(restaurant) {
 
     let html =  `<div class="card">
-    <div class="card-header">
+    <div class="card-header" onclick="window.location.href='/restaurant'">
     <b>${restaurant["name"]}</b>
     </div>
     <div class="card-body">

@@ -13,62 +13,65 @@
 
 <div class="container landing">
     <div class="styling">
-    <!-- SEARCH BAR -->
-    <div class="row">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-10">
-            <h3 class="mb-4 bigboy">Find your next great meal</h3>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <button class="btn btn-primary" type="button" id="button-addon1">Search</button>
+        <!-- SEARCH BAR -->
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                <h3 class="mb-4 bigboy">Find your next great meal</h3>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-primary" type="button" id="button-addon1">Search</button>
+                    </div>
+                    <input type="text" class="form-control search" placeholder="Ex. 'Kitsilano' "
+                        aria-label="Example text with button addon" aria-describedby="button-addon1">
                 </div>
-                <input type="text" class="form-control search" placeholder="Ex. 'Kitsilano' "
-                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+            </div>
+            <div class="col-md-1">
             </div>
         </div>
-        <div class="col-md-1">
-        </div>
-    </div>
-    <!-- FILTERS -->
-    <div class="row">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-10">
+        <!-- FILTERS -->
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+
+                <!-- MINIMUM ITEMS AVAILABLE -->
                 <form class="form-inline mx-auto btn-group">
-                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Must have a minimum number of items I can each at restaurant: </label>
-                          <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                            <option selected>Choose...</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                          </select>
-                        </form>
-                        
-                        <button type="button" class="btn btn-primary ml-2">Show All Restaurants</button>
-                        <br>
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Must have a minimum number of items I can
+                        each at restaurant: </label>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                        <option selected>Choose...</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </form>
+                <br>
 
-
-            <!-- SORT BY PRICE -->
-Filter by price:
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <!-- SORT BY PRICE -->
+                Filter by price:
+                <div class="btn-group btn-group-toggle ml-3 mr-3" data-toggle="buttons">
                     <label class="btn btn-secondary">
-                      <input type="radio" name="options" id="option1" autocomplete="off" checked> $
+                        <input type="radio" name="options" id="option1" autocomplete="off" checked> $
                     </label>
                     <label class="btn btn-secondary">
-                      <input type="radio" name="options" id="option2" autocomplete="off"> $$
+                        <input type="radio" name="options" id="option2" autocomplete="off"> $$
                     </label>
                     <label class="btn btn-secondary">
-                      <input type="radio" name="options" id="option3" autocomplete="off"> $$$
+                        <input type="radio" name="options" id="option3" autocomplete="off"> $$$
                     </label>
-            </div>
+                </div>
 
+                <!-- Show all restaurants -->
+                <button type="button" class="btn btn-primary ml-5">Show all restaurants</button>
+                </div>
 
             <!-- ADD/REMOVE RESTRICTIONS -->
             <!-- Add restrictions to search:
@@ -93,21 +96,23 @@ Filter by price:
             </script> -->
 <!-- MINIMUM ITEMS AVAILABLE -->
 
-        <div class="col-md-1">
-        </div>
-    </div>
-    </div>
 
-    <!-- RESTAURANTS -->
-    <div class="row mt-4">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-10 restaurants">
 
+
+                <div class="col-md-1">
+                </div>
             </div>
-            <div class="col-md-1">
+
+            <!-- RESTAURANTS -->
+            <div class="row mt-4">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10 restaurants">
+
+                </div>
+                <div class="col-md-1">
+                </div>
             </div>
-        </div>
 
             <script type="text/javascript">
 // $(".phoneNo").keyup(function() {
@@ -126,27 +131,27 @@ Filter by price:
 //         $(this).val(str);
 //     }
 // });
-</script>
+            </script>
 
 
 
-</div>
-</div>
+        </div>
+    </div>
 
 
 
 
 
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-</body>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    </body>
 
-</html>
+    </html>

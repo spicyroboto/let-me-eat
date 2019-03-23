@@ -68,7 +68,12 @@ app.get('/restrictions', authRoutes.isLoggedIn, function (request, response) {
     response.render('user-restrictions.html');
 });
 
+app.get('/restaurant', authRoutes.isLoggedIn, function (request, response) {
+    response.render('restaurant.html');
+});
+
 app.get('/main', function (request, response) {
+    console.log(request.params)
     if(request.user) console.log(JSON.stringify(request.user))
     response.render('main.html');
 });
