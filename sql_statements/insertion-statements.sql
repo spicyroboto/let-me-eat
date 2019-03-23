@@ -498,13 +498,13 @@ INSERT INTO User_Review VALUES (5, 210, 'reliable', 'their food contains too man
 INSERT INTO User_Review VALUES (6, 99, 'reliable', 'they have too many dishes with peanut', '2018-5-5', 'peanutHater', 6);
 INSERT INTO User_Review VALUES (7, 8, 'may be reliable', 'their food are just gross', '2019-2-25', 'richKid', 7);
 -- following tuples are added for restaurants in Wesbrook Village
-INSERT INTO User_Review VALUES (8, 44, 'reliable', 'food in general is good, but too much seafood', 'manaaa', 8);
-INSERT INTO User_Review VALUES (9, 6, 'may be reliable', 'gotta thumb up for not hitting my allergies', 'dairyBoy', 8);
-INSERT INTO User_Review VALUES (10, 19, 'reliable', 'food taste good, but contain a lot of allergens', 'peanutHater', 9);
-INSERT INTO User_Review VALUES (11, 0, 'undecided', 'Their food taste bland', 'gordonTheChef', 9);
+INSERT INTO User_Review VALUES (8, 44, 'reliable', 'food in general is good, but too much seafood', '2018-12-31', 'manaaa', 8);
+INSERT INTO User_Review VALUES (9, 6, 'may be reliable', 'gotta thumb up for not hitting my allergies', '2018-9-5', 'dairyBoy', 8);
+INSERT INTO User_Review VALUES (10, 19, 'reliable', 'food taste good, but contain a lot of allergens', '2019-3-1', 'peanutHater', 9);
+INSERT INTO User_Review VALUES (11, 0, 'undecided', 'Their food taste bland', '2019-3-14', 'gordonTheChef', 9);
 -- following tuples are added for restaurants in Kitsilano
-INSERT INTO User_Review VALUES (12, 1, 'undecided', 'food are healthy and taste great', 'billJoe', 10);
-INSERT INTO User_Review VALUES (13, 10, 'reliable', 'food are fine but a bit dry', 'gordonTheChef', 10);
-INSERT INTO User_Review VALUES (14, 55, 'reliable', 'food are great but quite expesive', 'John111', 11);
-INSERT INTO User_Review VALUES (15, 0, 'undecided', 'i do not see it being expensive a big deal', 'richKid', 11);
-INSERT INTO User_Review VALUES (16, 3, 'may be reliable', 'another place with too much sea food', 'manaaa', 11);
+INSERT INTO User_Review VALUES (12, 1, 'undecided', 'food are healthy and taste great', '2018-10-13', 'billJoe', 10);
+INSERT INTO User_Review VALUES (13, 10, 'reliable', 'food are fine but a bit dry', '2018-10-13', 'gordonTheChef', 10);
+INSERT INTO User_Review VALUES (14, 55, 'reliable', 'food are great but quite expesive', '2018-11-21', 'John111', 11);
+INSERT INTO User_Review VALUES (15, 0, 'undecided', 'i do not see it being expensive a big deal', '2018-11-22', 'richKid', 11);
+INSERT INTO User_Review VALUES (16, 3, 'may be reliable', 'another place with too much sea food', '2019-2-26', 'manaaa', 11);
