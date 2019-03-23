@@ -85,7 +85,7 @@ router.post('/postCustomerRestrictions', function (req, res) {
     let custUsername = req.user.username;
     // console.log("body: " + JSON.stringify(body));
     customer_controller.postCustomerRestrictions(req, res, restrictions, custUsername)
-    res.redirect('/main');
+    res.redirect(`/main?username=${custUsername}`);
 });
 
 router.post('/postUserReview', function (req, res) {

@@ -21,14 +21,10 @@ app.use(require('express-session')(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());   // displays flash messages in user session
-// app.use((req, res, next) => {
-//     if(req.user) {
-//         db.query("SELECT email FROM customer_user WHERE email = ? UNION SELECT email FROM owner_user WHERE email = ?",
-//         [req.user, req.user], function(err, rows){
-//             done(err, rows[0]);
-//         });
-//     }
-// })
+app.use(function(req, res, next){
+    req.user ? res.locals.username = req.user.username : res.locals.username = req.user;
+    next();
+  })
 
 
 // ==== Static files ==== //

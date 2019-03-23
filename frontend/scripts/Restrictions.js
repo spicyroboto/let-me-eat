@@ -1,7 +1,8 @@
 
 
 let items = null;
-
+var user = document.getElementById('username').innerText;
+console.log('USERNAME INSIDE SCRIPT TAG!', user);
 
 
 function getRestrictions() {
