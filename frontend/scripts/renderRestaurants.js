@@ -2,11 +2,11 @@
 
 let restaurants = null;
 
-
+let username = document.getElementById("username").value;
 
 function getRestaurants() {
 var request = new XMLHttpRequest();
-request.open('GET', '/getAllRestaurants');
+request.open('GET', '/getRestaurantsWithAtLeastXItemsCustomerCanEat/' + username + '/1');
 request.responseType = 'json';
 
 request.onload = function() {
