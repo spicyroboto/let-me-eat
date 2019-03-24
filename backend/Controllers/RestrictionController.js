@@ -50,6 +50,7 @@ exports.getRestaurantById = function (req, res, restaurantId) {
 };
 
 exports.getRestaurantsWithAtLeastXItemsCustomerCanEat = function (req, res, username, numItems) {
+    console.log("calling: getRestaurantsWithAtLeastXItemsCustomerCanEat" + username + numItems );
     var query = `select rrv.restaurantId, rrv.name, rrv.cuisine, rrv.Owner, rrv.diningTypeName,
     rrv.phoneNo, rrv.email, rrv.streetName, rrv.city, rrv.province, rrv.postalCode, rrv.locationTag,
     count(distinct(foodItemId)) as numberOfFoodItemsICanEat
@@ -63,6 +64,7 @@ exports.getRestaurantsWithAtLeastXItemsCustomerCanEat = function (req, res, user
     having count(distinct(foodItemId)) > ${numItems}`;
     db.query(query, function (err, result, fields) {
         if (err) throw err;
+        // console.log(result);
         res.send(result);
         });
 };
@@ -84,8 +86,35 @@ exports.getMenu = function (req, res, menuId) {
 };
 
 exports.GetFoodItemsOfMenu = function (req, res, menuId) {
-    var query = "select P.menuId, P.foodItemId, F.name as fName, F.calories as cal, F.price from Part_Of P join Food_Item F on F.foodItemId = P.foodItemId join Food_Item_Ingredients Fi on Fi.foodItemId = F.foodItemId join Ingredient I on I.ingredientId = Fi.ingredientId where menuId ="
-    + menuId;
+    var query = `select m.menuId, m.menuType, f.foodItemId, f.name as foodItemName, f.calories, f.price, 
+    i.ingredientId, i.ingredientName, r.restrictionId, r.name
+    from menu m
+    join part_of p on p.menuId = m.menuId
+    join food_item f on f.foodItemId = p.foodItemId
+    join food_item_ingredients fi on fi.foodItemId = f.foodItemId
+    join ingredient i on i.ingredientId = fi.ingredientId
+    join restriction_applies_to_ingredient ri on ri.ingredientId = i.ingredientId
+    join restriction r on r.restrictionId = ri.restrictionId
+    where m.menuId = ${menuId}`;
+    db.query(query, function (err, result, fields) {
+        if (err) throw err;
+        res.send(result);
+        });
+};
+
+exports.GetFoodItemsOfMenuByRestaurantId = function (req, res, restaurantId) {
+    var query = `select res.restaurantId, m.menuId, m.menuType, f.foodItemId, f.name as foodItemName, f.calories, f.price, 
+    i.ingredientId, i.ingredientName, r.restrictionId, r.name
+    from restaurant res
+    join offered_items o on o.restaurantId = res.restaurantId
+    join menu m on m.menuId = o.menuId
+    join part_of p on p.menuId = m.menuId
+    join food_item f on f.foodItemId = p.foodItemId
+    join food_item_ingredients fi on fi.foodItemId = f.foodItemId
+    join ingredient i on i.ingredientId = fi.ingredientId
+    join restriction_applies_to_ingredient ri on ri.ingredientId = i.ingredientId
+    join restriction r on r.restrictionId = ri.restrictionId
+    where res.restaurantId = ${restaurantId}`;
     db.query(query, function (err, result, fields) {
         if (err) throw err;
         res.send(result);
