@@ -57,6 +57,11 @@ router.get('/getFoodItemsIngredientsByMenu/:menuId', function (req, res) {
     restriction_controller.GetFoodItemsOfMenu(req, res, menuId);
 })
 
+router.get('/getFoodItemsIngredientsByRestaurantId/:restaurantId', function (req, res) {
+    let restaurantId = req.params.restaurantId;
+    restriction_controller.GetFoodItemsOfMenuByRestaurantId(req, res, restaurantId);
+})
+
 router.get('/getRestaurantsWithAvgMenuPrice/:avgPrice', function (req, res) {
     let avgPrice = req.params.avgPrice;
     restriction_controller.GetRestaurantsWithAvgMenuPrice(req, res, avgPrice);
