@@ -42,7 +42,13 @@ exports.getAllRestaurantNames = function (req, res) {
 };
 
 exports.getRestaurantById = function (req, res, restaurantId) {
-    var query = `SELECT * from Restaurant where restaurantId = ${restaurantId}`;
+    var query = `SELECT r.name, r.cuisine, r.username as owner, dt.diningTypeName, 
+    c.phoneNo, c.email, c.streetName, c.city, c.province, a.postalCode, a.locationTag
+    FROM Restaurant r
+    join dining_type dt on dt.diningTypeId = r.diningTypeId
+    join contact_info c on c.restaurantId = r.restaurantId
+    join address a on a.streetName = c.streetName
+    WHERE r.restaurantId = ${restaurantId}`;
     db.query(query, function (err, result, fields) {
         if (err) throw err;
         res.send(result);
