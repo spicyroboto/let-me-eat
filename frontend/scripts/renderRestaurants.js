@@ -1,7 +1,7 @@
  
 let restaurants = null;
 
-let username = document.getElementById("username").value;
+let username = document.getElementById("username").innerText.trim();
 
 function getRestaurants() {
 var request = new XMLHttpRequest();
@@ -32,7 +32,7 @@ function appendRestaurantItems() {
 function renderRestaurants(restaurant) {
 
     let html =  `<div class="card">
-    <div class="card-header" onclick="window.location.href='/restaurant'">
+    <div class="card-header" onclick="window.location.href='/restaurant?${restaurant["restaurantId"]}'">
     <b>${restaurant["name"]}</b>
     </div>
     <div class="card-body">
