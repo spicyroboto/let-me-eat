@@ -7,7 +7,7 @@ let restaurantId = window.location.search.substring(1);
 
 function getMenu() {
 var request = new XMLHttpRequest();
-request.open('GET', '/getFoodItemsIngredientsByMenu/' + restaurantId);
+request.open('GET', '/getFoodItemsIngredientsByRestaurantId/' + restaurantId);
 request.responseType = 'json';
 
 request.onload = function() {
@@ -59,7 +59,8 @@ function renderReviews(reviews) {
     </div>
     <div class="card-body">
       <p class="card-text">
-      ${reviews["comments"]}
+      ${reviews["comments"]}<br>
+      Upvotes: ${reviews["upvotes"]}
       </p>
     </div>
   </div>`
@@ -77,19 +78,19 @@ function renderMenu(menu) {
 
     let html =  `<div class="card">
     <div class="card-header"">
-    <b>${menu["fName"]}</b>
+    <b>${menu["foodItemName"]}</b>
     </div>
     <div class="card-body">
       <p class="card-text">
       <div class="row">
       <div class="col-md-4">
-      <div class="restaurantHeader">Details</div>
-      ${menu["fName"]}<br>
+      <div class="restaurantHeader">Ingredients</div>
+      ${menu["ingredients"]}<br>
       </div>
       <div class="col-md-4">
 
       <div class="restaurantHeader">Calories</div>
-      Location: ${menu["cal"]}
+      ${menu["calories"]}
 
       </div>
       <div class="col-md-4">
