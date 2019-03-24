@@ -105,9 +105,9 @@ router.get('/getMostReliableReview/:restaurantId', function (req, res) {
     customer_controller.getMostReliableReview(req, res, restaurantId);
 });
 
-router.get('/getReviewsAboveXAndWithHigestUpvotes/:threshold', function (req, res) {
-    let threshold = req.params.threshold;
-    customer_controller.getReviewsAboveXAndWithHigestUpvotes(req, res, threshold);
+router.get('/getReviewsWithMoreThanXUpvotes/:numOfUpvotes', function (req, res) {
+    let numOfUpvotes = req.params.numOfUpvotes;
+    customer_controller.getReviewsWithMoreThanXUpvotes(req, res, numOfUpvotes);
 })
 
 // === OWNER ENDPOINTS ===

@@ -56,10 +56,10 @@ exports.getMostReliableReview = function(req, res, restaurantId) {
         });
 }
 
-exports.getReviewsAboveXAndWithHigestUpvotes = function(req, res, threshold) {
+exports.getReviewsWithMoreThanXUpvotes = function(req, res, numOfUpvotes) {
     // not sure about this query
     var query = `select * from user_review 
-    where upvotes >= ${threshold} and upvotes >= all (select upvotes from user_review);`
+    where upvotes >= ${numOfUpvotes};`
     console.log(query);
     db.query(query, function (err, result, fields) {
         if (err) throw err;
