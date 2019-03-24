@@ -95,6 +95,16 @@ router.post('/postUserReview', function (req, res) {
     customer_controller.postUserReview(req, res, customerUsername, content, restaurantId);
 })
 
+router.get('/getMostReliableReview/:restaurantId', function (req, res) {
+    let restaurantId = req.params.restaurantId;
+    customer_controller.getMostReliableReview(req, res, restaurantId);
+});
+
+router.get('/getReviewsAboveXAndWithHigestUpvotes/:threshold', function (req, res) {
+    let threshold = req.params.threshold;
+    customer_controller.getReviewsAboveXAndWithHigestUpvotes(req, res, threshold);
+})
+
 // === OWNER ENDPOINTS ===
 
 router.post('/deleteRestaurant/:restaurantId', function (req, res) {
