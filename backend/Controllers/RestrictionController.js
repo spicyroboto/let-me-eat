@@ -129,12 +129,18 @@ exports.GetFoodItemsOfMenuByRestaurantId = function (req, res, restaurantId) {
 };
 
 exports.GetRestaurantsWithAvgMenuPrice = function (req, res, avgPrice)  {
-    var query = `select o.restaurantId, p.menuId, avg(f.price) as avgPriceOfMenu
-    from part_of p
+    var query = `SELECT r.name, r.cuisine, r.username as owner, dt.diningTypeName, 
+    c.phoneNo, c.email, c.streetName, c.city, c.province, a.postalCode, a.locationTag
+    FROM Restaurant r
+    join dining_type dt on dt.diningTypeId = r.diningTypeId
+    join contact_info c on c.restaurantId = r.restaurantId
+    join address a on a.streetName = c.streetName
+    join offered_items o on o.restaurantId = r.restaurantId
+    join menu m on o.menuId = m.menuId
+    join part_of p on p.menuId = o.menuId
     join food_item f on p.foodItemId = f.foodItemId
-    join offered_items o on p.menuId = o.menuId
-    group by o.restaurantId, p.menuId
-    having avg(f.price) < ${avgPrice}`;
+    group by r.restaurantId
+    having avg(f.price) <= ${avgPrice}`;
     db.query(query, function (err, result, fields) {
         if (err) throw err;
         res.send(result);
