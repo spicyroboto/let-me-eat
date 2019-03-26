@@ -59,8 +59,10 @@ function renderReviews(reviews) {
     </div>
     <div class="card-body">
       <p class="card-text">
-      ${reviews["comments"]}<br>
-      Upvotes: ${reviews["upvotes"]}
+      ${reviews["comments"]}<br><br>
+      Upvotes: ${reviews["upvotes"]}  &nbsp;&nbsp;<img src="../img/upvote.png" width="15px" height="15px"><br>
+      Review reliability: ${reviews["reliabilityIndex"]}<br>
+      Date Posted: ${reviews["datePosted"]}
       </p>
     </div>
   </div>`
@@ -77,7 +79,7 @@ function appendMenu() {
 function renderMenu(menu) {
 
     let html =  `<div class="card">
-    <div class="card-header"">
+    <div class="card-header">
     <b>${menu["foodItemName"]}</b>
     </div>
     <div class="card-body">
@@ -100,6 +102,14 @@ function renderMenu(menu) {
 
 
 
+      </div>
+      <div class="row">
+      <div class="col-md-12">
+      <br>
+      This item violates the following restrictions: ${menu["restrictions"]}
+      </div>
+
+      </div>
 
       </p>
     </div>
