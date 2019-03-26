@@ -110,6 +110,11 @@ router.get('/getReviewsWithMoreThanXUpvotes/:numOfUpvotes', function (req, res) 
     customer_controller.getReviewsWithMoreThanXUpvotes(req, res, numOfUpvotes);
 })
 
+router.get('/postUpvote/:reviewId', function (req, res) {
+    let reviewId = req.params.reviewId;
+    customer_controller.postUpvote(req, res, reviewId);
+})
+
 // === OWNER ENDPOINTS ===
 
 router.post('/deleteRestaurant/:restaurantId', function (req, res) {

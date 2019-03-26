@@ -43,6 +43,32 @@ exports.postUserReview = function(req, res, customerUsername, content, restauran
         });
 }
 
+exports.postUpvote = function(req, res, reviewId) {
+    var query = `select upvotes from user_review where reviewId = ${reviewId};`
+    console.log(query);
+
+    db.query(query, function (err, result, fields) {
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+        var upvote_count = result[0].upvotes;
+
+        query1 = `update user_review set upvotes = ${upvote_count + 1} where reviewId = ${reviewId};`
+        console.log(query1);
+        db.query(query1, function (err1, result1, fields) {
+            if (err1) {
+                console.log(err1);
+                throw err1;
+            }
+
+            //res.send(result1);
+            });
+
+        res.send(result);
+        });
+}
+
 exports.getMostReliableReview = function(req, res, restaurantId) {
     var query = `select * from user_review ur, restaurant r 
     where ur.restaurantId = r.restaurantId and r.restaurantId=${restaurantId}
