@@ -8,7 +8,7 @@ exports.getRestrictions = function (req, res) {
 };
 
 exports.getAllRestaurants = function (req, res) {
-    var query = `SELECT r.name, r.cuisine, r.username as owner, dt.diningTypeName, 
+    var query = `SELECT r.restaurantId, r.name, r.cuisine, r.username as owner, dt.diningTypeName, 
     c.phoneNo, c.email, c.streetName, c.city, c.province, a.postalCode, a.locationTag
     FROM Restaurant r
     join dining_type dt on dt.diningTypeId = r.diningTypeId
@@ -21,7 +21,7 @@ exports.getAllRestaurants = function (req, res) {
 };
 
 exports.getRestaurantsByLocationTag = function (req, res, locationTag) {
-    var query = `SELECT r.name, r.cuisine, r.username as owner, dt.diningTypeName, c.phoneNo, c.email, c.streetName, c.city, c.province, a.postalCode, a.locationTag
+    var query = `SELECT r.restaurantId, r.name, r.cuisine, r.username as owner, dt.diningTypeName, c.phoneNo, c.email, c.streetName, c.city, c.province, a.postalCode, a.locationTag
     FROM Restaurant r
     join dining_type dt on dt.diningTypeId = r.diningTypeId
     join contact_info c on c.restaurantId = r.restaurantId
@@ -42,7 +42,7 @@ exports.getAllRestaurantNames = function (req, res) {
 };
 
 exports.getRestaurantById = function (req, res, restaurantId) {
-    var query = `SELECT r.name, r.cuisine, r.username as owner, dt.diningTypeName, 
+    var query = `SELECT r.restaurantId, r.name, r.cuisine, r.username as owner, dt.diningTypeName, 
     c.phoneNo, c.email, c.streetName, c.city, c.province, a.postalCode, a.locationTag
     FROM Restaurant r
     join dining_type dt on dt.diningTypeId = r.diningTypeId
@@ -129,7 +129,7 @@ exports.GetFoodItemsOfMenuByRestaurantId = function (req, res, restaurantId) {
 };
 
 exports.GetRestaurantsWithAvgMenuPrice = function (req, res, avgPrice)  {
-    var query = `SELECT r.name, r.cuisine, r.username as owner, dt.diningTypeName, 
+    var query = `SELECT r.restaurantId, r.name, r.cuisine, r.username as owner, dt.diningTypeName, 
     c.phoneNo, c.email, c.streetName, c.city, c.province, a.postalCode, a.locationTag
     FROM Restaurant r
     join dining_type dt on dt.diningTypeId = r.diningTypeId
