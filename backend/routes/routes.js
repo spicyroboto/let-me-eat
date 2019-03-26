@@ -100,6 +100,12 @@ router.post('/postUserReview', function (req, res) {
     customer_controller.postUserReview(req, res, customerUsername, content, restaurantId);
 })
 
+router.post('/postUpvote/:reviewId/:restaurantId', function (req, res) {
+    let reviewId = req.params.reviewId;
+    customer_controller.postUpvote(req, res, reviewId);
+    // FIXME: should redirect to current restaurant's reviews
+})
+
 router.get('/getMostReliableReview/:restaurantId', function (req, res) {
     let restaurantId = req.params.restaurantId;
     customer_controller.getMostReliableReview(req, res, restaurantId);
@@ -108,11 +114,6 @@ router.get('/getMostReliableReview/:restaurantId', function (req, res) {
 router.get('/getReviewsWithMoreThanXUpvotes/:numOfUpvotes', function (req, res) {
     let numOfUpvotes = req.params.numOfUpvotes;
     customer_controller.getReviewsWithMoreThanXUpvotes(req, res, numOfUpvotes);
-})
-
-router.get('/postUpvote/:reviewId', function (req, res) {
-    let reviewId = req.params.reviewId;
-    customer_controller.postUpvote(req, res, reviewId);
 })
 
 // === OWNER ENDPOINTS ===
