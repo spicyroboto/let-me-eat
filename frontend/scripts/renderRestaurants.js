@@ -116,7 +116,17 @@ function getRestaurantsAvg3() {
   request.send();
 }
 
+// window.onload() = function() {
+//   var input = document.getElementById("location-search-bar-unhhh");
+//   input.addEventListener("keyup", function(event) {
+//     if (event.keyCode === 13) {
+//       event.preventDefault();
+//       document.getElementById("button-addon1").click();
+//     }
+//   });
+// }
 
+// --- HELPERS/RENDERERS ---
 function appendRestaurantItems() {
   console.log("calling appendRestaurantItems");
   $(".restaurants").html("");
