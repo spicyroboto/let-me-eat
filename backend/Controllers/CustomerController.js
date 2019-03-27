@@ -44,6 +44,7 @@ exports.postUserReview = function(req, res, customerUsername, content, restauran
 }
 
 exports.postUpvote = function(req, res, reviewId) {
+    console.log(reviewId);
     var query = `UPDATE user_review SET upVotes = upVotes + 1 WHERE reviewId = ${reviewId};`
     console.log(query);
     db.query(query, function (err, result, fields) {

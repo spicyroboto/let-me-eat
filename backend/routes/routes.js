@@ -100,8 +100,10 @@ router.post('/postUserReview', function (req, res) {
     customer_controller.postUserReview(req, res, customerUsername, content, restaurantId);
 })
 
-router.post('/postUpvote', function (req, res) {
-    let reviewId = req.body.reviewId;
+router.get('/postUpvote', function (req, res) {
+    console.log(req);
+    let reviewId = 1;
+//    let reviewId = req.body.reviewId;
     customer_controller.postUpvote(req, res, reviewId);
 })
 
