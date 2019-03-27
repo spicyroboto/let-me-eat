@@ -118,8 +118,8 @@ router.get('/getReviewsWithMoreThanXUpvotes/:numOfUpvotes', function (req, res) 
 
 // === OWNER ENDPOINTS ===
 
-router.post('/deleteRestaurant/:restaurantId', function (req, res) {
-    let restaurantId = req.params.restaurantId;
+router.post('/deleteRestaurant', function (req, res) {
+    let restaurantId = req.body.restaurantId;
     owner_controller.deleteRestaurant(req, res, restaurantId);
 })
 
