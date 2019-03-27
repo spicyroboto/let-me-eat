@@ -93,16 +93,15 @@ router.post('/postCustomerRestrictions', function (req, res) {
     res.redirect(`/main?username=${custUsername}`);
 });
 
-router.post('/postUserReview', function (req, res) {
+router.post('/postUserReview/', function (req, res) {
     let content = req.body.content;
     let customerUsername = req.body.customerUsername;
     let restaurantId = req.body.restaurantId;
     customer_controller.postUserReview(req, res, customerUsername, content, restaurantId);
 })
 
-router.get('/postUpvote', function (req, res) {
-    console.log(req);
-    let reviewId = 1;
+router.get('/postUpvote/:reviewId', function (req, res) {
+    let reviewId = req.params.reviewId;
 //    let reviewId = req.body.reviewId;
     customer_controller.postUpvote(req, res, reviewId);
 })

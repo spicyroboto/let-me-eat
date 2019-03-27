@@ -60,7 +60,7 @@ function renderReviews(reviews) {
     <div class="card-body">
       <p class="card-text">
       ${reviews["comments"]}<br><br>
-      Upvotes: <span id="upvote">${reviews["upvotes"]}</span>  &nbsp;&nbsp;<img src="../img/upvote.png" width="15px" height="15px" onclick="incrementUpVote()"><br>
+      Upvotes: <span id="upvote">${reviews["upvotes"]}</span>  &nbsp;&nbsp;<img src="../img/upvote.png" width="15px" height="15px" id="${reviews["reviewId"]}" onclick="incrementUpVote(this.id)"><br>
       Review reliability: ${reviews["reliabilityIndex"]}<br>
       Date Posted: ${reviews["datePosted"]}
       </p>
@@ -156,9 +156,9 @@ function renderRestaurantInfo(restaurantInfo) {
     $("#restaurantInfo").append(html);
 }
 
-function incrementUpVote() {
+function incrementUpVote(itemId) {
   var request = new XMLHttpRequest();
-  request.open('GET', '/postUpvote');
+  request.open('GET', '/postUpvote/' + itemId);
   request.responseType = 'json';
   
   request.onload = function() {
