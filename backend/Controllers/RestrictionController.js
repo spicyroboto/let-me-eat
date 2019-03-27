@@ -110,7 +110,8 @@ exports.GetFoodItemsOfMenu = function (req, res, menuId) {
 
 exports.GetFoodItemsOfMenuByRestaurantId = function (req, res, restaurantId) {
     var query = `select res.restaurantId, m.menuId, m.menuType, f.foodItemId, f.name as foodItemName, f.calories, f.price, 
-    GROUP_CONCAT(distinct i.ingredientName separator ', ') as ingredients, GROUP_CONCAT(distinct r.name separator ', ') as restrictions
+    GROUP_CONCAT(distinct i.ingredientName separator ', ') as ingredients, 
+    GROUP_CONCAT(distinct r.name separator ', ') as restrictions
     from restaurant res
     join offered_items o on o.restaurantId = res.restaurantId
     join menu m on m.menuId = o.menuId
@@ -118,8 +119,8 @@ exports.GetFoodItemsOfMenuByRestaurantId = function (req, res, restaurantId) {
     join food_item f on f.foodItemId = p.foodItemId
     join food_item_ingredients fi on fi.foodItemId = f.foodItemId
     join ingredient i on i.ingredientId = fi.ingredientId
-    join restriction_applies_to_ingredient ri on ri.ingredientId = i.ingredientId
-    join restriction r on r.restrictionId = ri.restrictionId
+    left join restriction_applies_to_ingredient ri on ri.ingredientId = i.ingredientId
+    left join restriction r on r.restrictionId = ri.restrictionId
     where res.restaurantId = ${restaurantId}
     group by foodItemId`;
     db.query(query, function (err, result, fields) {
