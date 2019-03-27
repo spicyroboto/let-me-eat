@@ -1,8 +1,9 @@
 var express = require('express');
+var db = require('./backend/models/db');
 var body_parser = require('body-parser');
-const passport   = require('passport')
+const passport = require('passport')
 const authRoutes = require('./backend/routes/auth_routes.js')
-var flash    = require('connect-flash');
+var flash = require('connect-flash');
 const PORT = process.env.PORT || 3000;
 
 // --- INSTANTIATE THE APP
@@ -21,10 +22,10 @@ app.use(require('express-session')(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());   // displays flash messages in user session
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
     req.user ? res.locals.username = req.user.username : res.locals.username = req.user;
     next();
-  })
+})
 
 
 // ==== Static files ==== //
@@ -61,9 +62,23 @@ app.get('/createaccount', function (request, response) {
 });
 
 
-// app.get('/signup-user', function (request, response) {
-//     response.render('signup-user.html');
-// });
+// Going to remove into separate file, just making sure it works for now
+function isCustomerUser(req, res) {
+    console.log(req.user.username)
+    let username = req.user.username;
+    db.query("SELECT username FROM customer_user WHERE username = ?",
+    [username], function(err, rows){
+        if(err) {
+            throw new Error(err);
+        }
+       if(!rows.length) {
+         res.render('owner-main.html')
+       } else {
+        res.render('main.html')
+       }
+    });
+}
+
 
 app.get('/restrictions', authRoutes.isLoggedIn, function (request, response) {
     response.render('user-restrictions.html');
@@ -73,10 +88,17 @@ app.get('/restaurant', authRoutes.isLoggedIn, function (request, response) {
     response.render('restaurant.html');
 });
 
-app.get('/main', function (request, response) {
-    console.log(request.params)
-    if(request.user) console.log(JSON.stringify(request.user))
-    response.render('main.html');
+app.get('/main', authRoutes.isLoggedIn, function (request, response) {
+    // if (isCustomerUser(request)) {response.render('main.html')}
+    let result = isCustomerUser(request, response);
+    // if (result === false) {
+    //     response.send('FALSE')
+    // } else if(response === true) {
+    //     response.send('TRUE');
+    // }
+
+
+    
 });
 
 
