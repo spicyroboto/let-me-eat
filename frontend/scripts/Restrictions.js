@@ -20,12 +20,6 @@ request.send();
 getRestrictions();
 
 
-
-
-
-
-
-
 function appendSpaceItems() {
 	items.forEach(function(item) {
     console.log(item);

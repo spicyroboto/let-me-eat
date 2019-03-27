@@ -41,7 +41,7 @@ module.exports = {
 
         // process the signup form for new restaurant owner
         router.post('/signup-owner', passport.authenticate('local-signup-owner', {
-            successRedirect: '/main', // redirect to the secure profile section
+            successRedirect: '/owner-restaurant', // redirect to the secure profile section
             failureRedirect: '/signup-owner',
             failureFlash: true // allow flash messages
         }));

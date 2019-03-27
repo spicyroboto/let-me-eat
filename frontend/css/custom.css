@@ -232,7 +232,15 @@ margin-bottom: 20px;
   background-color: #b8b8ff;
 }
 
+.form-control {
+  /* margin-top: 20px; */
+  width: 80% !important;
+}
 
 .bigboy {
   font-weight: 900;
+}
+
+.add-restaurant-btn {
+  margin-top: 20px;
 }
