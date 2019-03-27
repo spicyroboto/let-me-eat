@@ -395,6 +395,8 @@ INSERT INTO Address VALUES('3380 Shrum Lane', 'Vancouver', 'BC', 'V6S0B9', 'Wesb
 -- following tuples are added for restaurants in Kitsilano
 INSERT INTO Address VALUES('1937 Cornwall Ave', 'Vancouver', 'BC', 'V6J1C8', 'Kitsilano');
 INSERT INTO Address VALUES('3005 W. Broadway', 'Vancouver', 'BC', 'V6K2G9', 'Kitsilano');
+-- following are for dummy_owner
+INSERT INTO Address VALUES('Whatever Rd', 'Vancouver', 'BC', 'A0A1B1', 'UBC');
 
 INSERT INTO Dining_Type VALUES(0, 'cafe');
 INSERT INTO Dining_Type VALUES(1, 'residence dining');
@@ -432,6 +434,8 @@ INSERT INTO Restaurant VALUES(9,  'Togo Sushi', 'Japanese', 'togosOwner', 4);
 -- following tuples are added for restaurants in Kitsilano
 INSERT INTO Restaurant VALUES(10, 'Al Basha', 'Arabic', 'alOwner', 4);
 INSERT INTO Restaurant VALUES(11, 'Banana Leaf', 'Malaysian', 'balfOwner', 4);
+-- following are for dummy_owner
+INSERT INTO Restaurant VALUES(13, 'Worst Food Ever', 'International', 'dummy_owner', 4);
 
 INSERT INTO Contact_Info VALUES('6041110000', 'bentoSushi@mail.ubc.ca', '2015 Main Mall', 'Vancouver', 'BC', 0);
 INSERT INTO Contact_Info VALUES('6041110001', 'theLoop@mail.ubc.ca', '2260 West Mall', 'Vancouver', 'BC', 1);
@@ -447,6 +451,8 @@ INSERT INTO Contact_Info VALUES('6042220001', 'contact@togosushi.ca', '3380 Shru
 -- following tuples are added for restaurants in Kitsilano
 INSERT INTO Contact_Info VALUES('6043330000', 'alBasha@alBasha.com', '1937 Cornwall Ave', 'Vancouver', 'BC', 10);
 INSERT INTO Contact_Info VALUES('6043330001', 'contact@bananaleaf.ca', '3005 W. Broadway', 'Vancouver', 'BC', 11);
+-- following are for dummy_owner
+INSERT INTO Contact_Info VALUES('7781231123', 'donotemail@yahoo.com', 'Whatever Rd', 'Vancouver', 'BC', 13);
 
 -- some tuples are temporarily removed to make implicit 1:many relationship for Restaurant:Menu
 INSERT INTO Offered_Items VALUES(0, 5);
@@ -486,6 +492,8 @@ INSERT INTO Offered_Items VALUES(9, 15);
 INSERT INTO Offered_Items VALUES(10, 17);
 --INSERT INTO Offered_Items VALUES(11, 18);
 INSERT INTO Offered_Items VALUES(11, 19);
+-- following is for dummy_owner
+INSERT INTO Offered_Items VALUES(13, 18);
 
 -- reliabilityIndex = 'undecided' for 0<=upvotes<=4
 --                  = 'may be reliable' for 5<=upvotes<=9
@@ -509,3 +517,5 @@ INSERT INTO User_Review VALUES (13, 10, 'reliable', 'food are fine but a bit dry
 INSERT INTO User_Review VALUES (14, 55, 'reliable', 'food are great but quite expesive', '2018-11-21', 'John111', 11);
 INSERT INTO User_Review VALUES (15, 0, 'undecided', 'i do not see it being expensive a big deal', '2018-11-22', 'richKid', 11);
 INSERT INTO User_Review VALUES (16, 3, 'may be reliable', 'another place with too much sea food', '2019-2-26', 'manaaa', 11);
+-- following is for dummy owner
+INSERT INTO User_Review VALUES (30, 0, 'undecided', 'this place is real bad', '2019-3-27', 'billJoe', 13);
