@@ -103,7 +103,6 @@ router.post('/postUserReview', function (req, res) {
 router.post('/postUpvote', function (req, res) {
     let reviewId = req.body.reviewId;
     customer_controller.postUpvote(req, res, reviewId);
-    // FIXME: should redirect to current restaurant's reviews
 })
 
 router.get('/getMostReliableReview/:restaurantId', function (req, res) {

@@ -51,7 +51,16 @@ exports.postUpvote = function(req, res, reviewId) {
             console.log(err);
             throw err;
         }
-        res.send(result);
+        });
+
+    var query1 = `SELECT * FROM user_review WHERE reviewId = ${reviewId};`
+    console.log(query1);
+    db.query(query1, function (err, result, fields) {
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+        res.send(result[0]);
         });
 }
 
