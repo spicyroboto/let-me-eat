@@ -121,23 +121,23 @@ router.get('/getReviewsWithMoreThanXUpvotes/:numOfUpvotes', function (req, res) 
 router.post('/deleteRestaurant', function (req, res) {
     let restaurantId = req.body.restaurantId;
     owner_controller.deleteRestaurant(req, res, restaurantId);
-})
+});
 
-// app.post('/login', function (req, res) {
-//     var username = req.body.user;
-//     var password = req.body.password;
-//     console.log("username is : " + username + " password is: " + password);
-//     res.send("Stub for login: username/password: " + username + "/" + password);
-// })
+router.post('/postRestaurant', function (req, res) {
+    let a = req.body;
+    let username = req.body.username;
+    console.log(req.body);
+    res.redirect(`/owner-contact?username=${username}`)
+});
 
-// app.post('/signup', function(req, res) {
-//     var email = req.body.email;
-//     var username = req.body.username;
-//     var password = req.body.password;
-// })
+router.post('/postContactInfo', function (req, res) {
+    let a = req.body;
+    let username = req.body.username;
+    console.log(req.body);
+    res.redirect(`/owner-main?username=${username}`);
+});
 
-
-
+// === HOME PAGE ===
 // Home page
 router.get('/', function (request, response) {
     response.render('index.html');
