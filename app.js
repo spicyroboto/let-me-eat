@@ -101,6 +101,18 @@ app.get('/main', authRoutes.isLoggedIn, function (request, response) {
     
 });
 
+app.get('/owner-restaurant', function(request, response) {
+    console.log(request.params)
+    if(request.user) console.log(JSON.stringify(request.user))
+    response.render('owner-restaurant.html');
+});
+
+app.get('/owner-contact', function(request, response) {
+    console.log(request.params)
+    if(request.user) console.log(JSON.stringify(request.user))
+    response.render('owner-contact.html');
+});
+
 
 // --- START THE SERVER 
 var server = app.listen(PORT, function () {
