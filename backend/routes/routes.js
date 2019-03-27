@@ -100,8 +100,8 @@ router.post('/postUserReview', function (req, res) {
     customer_controller.postUserReview(req, res, customerUsername, content, restaurantId);
 })
 
-router.post('/postUpvote/:reviewId/:restaurantId', function (req, res) {
-    let reviewId = req.params.reviewId;
+router.post('/postUpvote', function (req, res) {
+    let reviewId = req.body.reviewId;
     customer_controller.postUpvote(req, res, reviewId);
     // FIXME: should redirect to current restaurant's reviews
 })
