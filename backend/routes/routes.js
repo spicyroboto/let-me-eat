@@ -136,8 +136,21 @@ router.post('/deleteRestaurant', function (req, res) {
 //     var password = req.body.password;
 // })
 
+router.post('/postRestaurant', function (req, res) {
+    let a = req.body;
+    let username = req.body.username;
+    console.log(req.body);
+    res.redirect(`/owner-contact?username=${username}`)
+});
 
+router.post('/postContactInfo', function (req, res) {
+    let a = req.body;
+    let username = req.body.username;
+    console.log(req.body);
+    res.redirect(`/owner-main?username=${username}`);
+});
 
+// === HOME PAGE ===
 // Home page
 router.get('/', function (request, response) {
     response.render('index.html');
