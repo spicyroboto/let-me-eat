@@ -135,19 +135,24 @@ router.post('/postRestaurant', function (req, res) {
     let diningType = req.body.diningType;
     console.log(req.body);
     owner_controller.postRestaurant(req, res, restaurantName, cuisine, username, diningType);
-    res.redirect(`/owner-contact?username=${username}`)
+    res.redirect(`/owner-main?username=${username}`)
 });
 
 router.post('/postContactInfo', function (req, res) {
-    // let username = req.user.username;
+    let restaurantId = req.body.restaurantId;
     let phone = req.body.phone;
     let email = req.body.email;
     let street = req.body.street;
     let city = req.body.city;
     let province = req.body.province;
     console.log(req.body);
-    owner_controller.postContactInfo(req, res, phone, email, street, city, province);
+    owner_controller.postContactInfo(req, res, phone, email, street, city, province, restaurantId);
     // res.redirect(`/owner-main?username=${username}`);
+});
+
+router.get('/getRestaurantIdByOwnerUsername/:username', function (req, res) {
+    let username = req.params.username;
+    restriction_controller.getRestaurantIdByOwnerUsername(req, res, username);
 });
 
 // === HOME PAGE ===

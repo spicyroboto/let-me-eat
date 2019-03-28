@@ -61,7 +61,7 @@ function renderReviews(reviews) {
       <p class="card-text">
       ${reviews["comments"]}<br><br>
       Upvotes: <span id="upvote">${reviews["upvotes"]}</span>  &nbsp;&nbsp;<img src="../img/upvote.png" width="15px" height="15px" id="${reviews["reviewId"]}" onclick="incrementUpVote(this.id)"><br>
-      Review reliability: ${reviews["reliabilityIndex"]}<br>
+      Review reliability: <span id="reliability">${reviews["reliabilityIndex"]}</span><br>
       Date Posted: ${reviews["datePosted"]}
       </p>
     </div>
@@ -171,7 +171,9 @@ function incrementUpVote(itemId) {
 
   function updateUpVote(upvote) {
     let newVote = upvote["upvotes"];
+    let reliability = upvote["reliabilityIndex"];
     document.getElementById("upvote").innerHTML = newVote;
+    document.getElementById("reliability").innerHTML = reliability;
   }
                    
                    
