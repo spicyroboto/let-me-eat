@@ -4,6 +4,7 @@ let restaurants = null;
 let username = document.getElementById("username").innerText.trim();
 
 function getRestaurants() {
+<<<<<<< Updated upstream
   var request = new XMLHttpRequest();
   window.onload = function() {
     var index = document.getElementById("inlineFormCustomSelectPref");
@@ -27,6 +28,17 @@ function getRestaurants() {
       request.send();
     }
   }
+=======
+var request = new XMLHttpRequest();
+request.open('GET', '/getRestaurantsWithAtLeastXItemsCustomerCanEat/');
+request.responseType = 'json';
+
+request.onload = function() {
+  restaurants = request.response;
+  appendRestaurantItems();
+};
+request.send();
+>>>>>>> Stashed changes
 }
 
 getRestaurants();
@@ -138,7 +150,11 @@ function appendRestaurantItems() {
 function renderRestaurants(restaurant) {
 
     let html =  `<div class="card">
+<<<<<<< Updated upstream
     <div class="card-header" onclick="window.location.href='/restaurant?${restaurant["restaurantId"]}'">
+=======
+    <div class="card-header" onclick="window.location.href='/restaurant'">
+>>>>>>> Stashed changes
     <b>${restaurant["name"]}</b>
     </div>
     <div class="card-body">
