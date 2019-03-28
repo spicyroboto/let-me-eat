@@ -1,6 +1,29 @@
 <%- include("header"); %>
 
 <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+<script>
+    function Delete() {
+        console.log("Got here");
+        alert("Restaurant Deleted");
+        $.post("/deleteRestaurant");
+    }
+
+</script>
+
+<script>
+ function getPopularCustomer() {
+        console.log('inside getPop')
+        var request = new XMLHttpRequest();
+        request.open('GET', '/getPopularCustomers');
+        request.responseType = 'json';
+        request.onload = function () {
+            popularCustomerUsername = JSON.stringify(request.response[0].username);
+            alert(`The most popular customer is: ${popularCustomerUsername}`)
+        };
+        request.send();
+    }
+</script>
+
 
 
 <!-- Load renderer -->
@@ -12,29 +35,25 @@
     <div class="styling">
         <h3 class="bigboy mb-5" id="owner"></h3>
         <p id="status"></p>
-            <button type="button" class="btn btn-primary" onclick="Delete">Delete Restaurant</button>
-        </div>
+        <button type="button" class="btn btn-primary" onclick="getPopularCustomer()">Find popular Customers!</button>
+        <button type="button" class="btn btn-primary" onclick="Delete()">Delete Restaurant</button>
     </div>
-
-
-    <script>
-    function Delete() {
-    console.log("Got here");
-    alert("Restaurant Deleted");
-    $.post("/deleteRestaurant");
-    }</script>
+</div>
 
 
 
-    <script src="scripts/renderOwner.js"></script>
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    </body>
 
-    </html>
+
+<script src="scripts/renderOwner.js"></script>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

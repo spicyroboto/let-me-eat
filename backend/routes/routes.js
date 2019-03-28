@@ -123,18 +123,9 @@ router.post('/deleteRestaurant', function (req, res) {
     owner_controller.deleteRestaurant(req, res, username);
 })
 
-// app.post('/login', function (req, res) {
-//     var username = req.body.user;
-//     var password = req.body.password;
-//     console.log("username is : " + username + " password is: " + password);
-//     res.send("Stub for login: username/password: " + username + "/" + password);
-// })
-
-// app.post('/signup', function(req, res) {
-//     var email = req.body.email;
-//     var username = req.body.username;
-//     var password = req.body.password;
-// })
+router.get('/getPopularCustomers', function (req, res) {
+    owner_controller.getPopularCustomers(req, res);
+})
 
 router.post('/postRestaurant', function (req, res) {
     let a = req.body;

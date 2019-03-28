@@ -11,6 +11,16 @@ exports.deleteRestaurant = function (req, res, username) {
       });
 };
 
+exports.getPopularCustomers = function (req, res) {
+  var query = `select c.username from customer_user c where not exists(
+    (select r.restaurantid from restaurant r where r.restaurantid NOT IN (select ur.restaurantid from user_review ur where c.username = ur.username)));`;
+  console.log(query);
+  db.query(query, function (err, result, fields) {
+      if (err) throw err;
+      res.send(result);
+      });
+};
+
 exports.postRestaurant = function (req, res, restaurantName, cuisine, username, diningType) {
   var query = `INSERT INTO restaurant
   (name, cuisine, username, diningTypeId)
