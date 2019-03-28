@@ -108,10 +108,16 @@ app.get('/owner-restaurant', function(request, response) {
 });
 
 app.get('/owner-contact', function(request, response) {
-    console.log(request.params)
-    if(request.user) console.log(JSON.stringify(request.user))
+    console.log(request.params);
+    if (request.user) console.log(JSON.stringify(request.user));
     response.render('owner-contact.html');
 });
+
+app.get('/owner-main', function(request, response) {
+    console.log(request.params);
+    if (request.user) console.log(JSON.stringify(request.user));
+    response.render('owner-main.html');
+})
 
 
 // --- START THE SERVER 
