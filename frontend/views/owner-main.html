@@ -11,14 +11,18 @@
 </script>
 
 <script>
- function getPopularCustomer() {
+    function getPopularCustomer() {
         console.log('inside getPop')
         var request = new XMLHttpRequest();
         request.open('GET', '/getPopularCustomers');
         request.responseType = 'json';
         request.onload = function () {
-            popularCustomerUsername = JSON.stringify(request.response[0].username);
-            alert(`The most popular customer is: ${popularCustomerUsername}`)
+            if (!request.response[0]) {
+                alert(`There are no customers who have written a review for every restaurant! `)
+            } else {
+                popularCustomerUsername = JSON.stringify(request.response[0].username);
+                alert(`The most popular customer is: ${popularCustomerUsername}`)
+            }
         };
         request.send();
     }
