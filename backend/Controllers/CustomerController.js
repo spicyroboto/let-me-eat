@@ -53,10 +53,19 @@ exports.postUpvote = function(req, res, reviewId) {
             throw err;
         }
         });
-
-    var query1 = `SELECT * FROM user_review WHERE reviewId = ${reviewId};`
+    
+    var query1 = `Call update_reliabilityIndex(${reviewId});`
     console.log(query1);
     db.query(query1, function (err, result, fields) {
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+        });
+
+    var query2 = `SELECT * FROM user_review WHERE reviewId = ${reviewId};`
+    console.log(query2);
+    db.query(query2, function (err, result, fields) {
         if (err) {
             console.log(err);
             throw err;
