@@ -41,6 +41,16 @@ exports.getAllRestaurantNames = function (req, res) {
         });
 };
 
+exports.getRestaurantIdByOwnerUsername = function (req, res, username) {
+    console.log(username);
+    var query = `select restaurantId from restaurant where username = '${username}'`;
+    console.log(query);
+    db.query(query, function (err, result, fields) {
+        if (err) throw err;
+        res.send(result);
+        });
+};
+
 exports.getRestaurantById = function (req, res, restaurantId) {
     var query = `SELECT r.restaurantId, r.name, r.cuisine, r.username as owner, dt.diningTypeName, 
     c.phoneNo, c.email, c.streetName, c.city, c.province, a.postalCode, a.locationTag
