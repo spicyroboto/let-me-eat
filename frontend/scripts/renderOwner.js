@@ -14,3 +14,7 @@ function renderOwner() {
 
     $("#owner").append(html);
 }
+
+function Delete() {
+    $.post("/deleteRestaurant");
+ }
