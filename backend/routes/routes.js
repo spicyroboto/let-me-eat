@@ -138,21 +138,30 @@ router.post('/deleteRestaurant', function (req, res) {
 
 router.post('/postRestaurant', function (req, res) {
     let a = req.body;
-    let username = req.body.username;
+    let restaurantName = req.body.restaurantName;
+    let cuisine = req.body.cuisine;
+    let username = req.user.username;
+    let diningType = req.body.diningType;
     console.log(req.body);
+    owner_controller.postRestaurant(req, res, restaurantName, cuisine, username, diningType);
     res.redirect(`/owner-contact?username=${username}`)
 });
 
 router.post('/postContactInfo', function (req, res) {
-    let a = req.body;
-    let username = req.body.username;
+    // let username = req.user.username;
+    let phone = req.body.phone;
+    let email = req.body.email;
+    let street = req.body.street;
+    let city = req.body.city;
+    let province = req.body.province;
     console.log(req.body);
-    res.redirect(`/owner-main?username=${username}`);
+    owner_controller.postContactInfo(req, res, phone, email, street, city, province);
+    // res.redirect(`/owner-main?username=${username}`);
 });
 
 // === HOME PAGE ===
 // Home page
-router.get('/', function (request, response) {
+router.get('/', function (request, response) { 
     response.render('index.html');
 });
 
