@@ -363,6 +363,8 @@ INSERT INTO Customer_User VALUES('manaaa', 'pwooas', 1, 'basdff@mail.com');
 INSERT INTO Customer_User VALUES('gordonTheChef', 'gordonTheGreat101', 1, 'gordonRamsay@gmail.com');
 INSERT INTO Customer_User VALUES('peanutHater', 'perr121', 0, 'peanutHater@aol.com');
 INSERT INTO Customer_User VALUES('richKid', 'richRichRich', 0, 'richKid@gmail.com');
+-- user added by Seif
+INSERT INTO Customer_User VALUES('chubbyKid', '123', 0, 's@s.com');
 
 INSERT INTO Customer_Cannot_Eat VALUES('billJoe', 3);
 INSERT INTO Customer_Cannot_Eat VALUES('billJoe', 8);
@@ -519,3 +521,19 @@ INSERT INTO User_Review VALUES (15, 0, 'undecided', 'i do not see it being expen
 INSERT INTO User_Review VALUES (16, 3, 'may be reliable', 'another place with too much sea food', '2019-2-26', 'manaaa', 11);
 -- following is for dummy owner
 INSERT INTO User_Review VALUES (30, 0, 'undecided', 'this place is real bad', '2019-3-27', 'billJoe', 13);
+-- following are added by Seif. Some dependent tuples missing
+INSERT INTO User_Review VALUES (18, 0, 'undecided', "absolutely hated it!", '2019-02-10', 'chubbyKid', 1);
+INSERT INTO User_Review VALUES (19, 0, 'undecided', "absolutely hated it!", '2019-01-10', 'chubbyKid', 2);
+INSERT INTO User_Review VALUES (20, 0, 'undecided', "absolutely hated it!", '2019-03-11', 'chubbyKid', 3);
+INSERT INTO User_Review VALUES (21, 0, 'undecided', "absolutely hated it!", '2019-03-12', 'chubbyKid', 4);
+INSERT INTO User_Review VALUES (22, 0, 'undecided', "absolutely hated it!", '2019-03-13', 'chubbyKid', 5);
+INSERT INTO User_Review VALUES (23, 0, 'undecided', "absolutely hated it!", '2019-03-14', 'chubbyKid', 6);
+INSERT INTO User_Review VALUES (24, 0, 'undecided', "absolutely hated it!", '2019-03-15', 'chubbyKid', 7);
+INSERT INTO User_Review VALUES (25, 0, 'undecided', "absolutely hated it!", '2019-03-16', 'chubbyKid', 8);
+INSERT INTO User_Review VALUES (26, 0, 'undecided', "absolutely hated it!", '2019-03-17', 'chubbyKid', 9);
+INSERT INTO User_Review VALUES (27, 0, 'undecided', "absolutely hated it!", '2019-03-18', 'chubbyKid', 10);
+INSERT INTO User_Review VALUES (28, 0, 'undecided', "absolutely hated it!", '2019-03-19', 'chubbyKid', 11) ;
+INSERT INTO User_Review VALUES (29, 0, 'undecided', "absolutely hated it!", '2019-03-10', 'chubbyKid', 12);
+INSERT INTO User_Review VALUES (30, 0, 'undecided', "absolutely hated it!", '2019-03-10', 'chubbyKid', 82);
+INSERT INTO User_Review VALUES (31, 0, 'undecided', "absolutely hated it!", '2019-03-10', 'chubbyKid', 102);
+INSERT INTO User_Review VALUES (32, 0, 'undecided', "absolutely hated it!", '2019-03-10', 'chubbyKid', 142);
