@@ -52,7 +52,7 @@ FOREIGN KEY (ingredientId) REFERENCES Ingredient(ingredientId) ON DELETE CASCADE
 
 CREATE TABLE Customer_User (
 username CHAR(20) PRIMARY KEY,
-password CHAR(20),
+password VARCHAR(500),
 isVerified BIT,
 email CHAR(40) UNIQUE
 );
@@ -82,7 +82,7 @@ diningTypeName CHAR(20)
 
 CREATE TABLE Owner_User (
 username CHAR(20) PRIMARY KEY,
-password CHAR(20),
+password VARCHAR(500),
 email CHAR(40) UNIQUE
 );
 

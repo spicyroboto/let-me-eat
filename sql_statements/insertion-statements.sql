@@ -1,5 +1,3 @@
-USE heroku_e52fec4ca086f6b;
-
 INSERT INTO Ingredient VALUES(0, 'milk');
 INSERT INTO Ingredient VALUES(1, 'egg');
 INSERT INTO Ingredient VALUES(2, 'peanut');

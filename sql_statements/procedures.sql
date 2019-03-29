@@ -1,5 +1,3 @@
-use heroku_e52fec4ca086f6b;
-
 DELIMITER $$
 
 create procedure update_reliabilityIndex (in review_id INTEGER)
