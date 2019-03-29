@@ -421,6 +421,8 @@ INSERT INTO Owner_User VALUES('togosOwner', 'sfs11##', 'contact@togosushi.ca');
 -- following tuples are added for restaurants in Kitsilano
 INSERT INTO Owner_User VALUES('alOwner', 'alawesome!', 'bossOfAl@gmail.com');
 INSERT INTO Owner_User VALUES('balfOwner', 'rkff3@@', 'theBestBoss@yahoo.ca');
+-- following is the dummy owner which we have to manually insert to db here to ensure integrity of the script
+INSERT INTO Owner_User VALUES('dummy_owner', 'haha', 'dummy_owner@dummy.com');
 
 INSERT INTO Restaurant VALUES(0,	'Bento Sushi',	'Japanese',	'bentoOwner',	0);
 INSERT INTO Restaurant VALUES(1,	'The Loop Cafe',	'Canadian',	'loopOwner',	0);
@@ -458,41 +460,41 @@ INSERT INTO Contact_Info VALUES('7781231123', 'donotemail@yahoo.com', 'Whatever 
 
 -- some tuples are temporarily removed to make implicit 1:many relationship for Restaurant:Menu
 INSERT INTO Offered_Items VALUES(0, 5);
---INSERT INTO Offered_Items VALUES(0, 9);
---INSERT INTO Offered_Items VALUES(1, 0);
-I--NSERT INTO Offered_Items VALUES(1, 1);
+-- INSERT INTO Offered_Items VALUES(0, 9);
+-- INSERT INTO Offered_Items VALUES(1, 0);
+-- INSERT INTO Offered_Items VALUES(1, 1);
 INSERT INTO Offered_Items VALUES(1, 9);
---INSERT INTO Offered_Items VALUES(2, 0);
+-- INSERT INTO Offered_Items VALUES(2, 0);
 INSERT INTO Offered_Items VALUES(2, 2);
---INSERT INTO Offered_Items VALUES(2, 9);
---INSERT INTO Offered_Items VALUES(3, 0);
---INSERT INTO Offered_Items VALUES(3, 1);
---INSERT INTO Offered_Items VALUES(3, 2);
---INSERT INTO Offered_Items VALUES(3, 3);
+-- INSERT INTO Offered_Items VALUES(2, 9);
+-- INSERT INTO Offered_Items VALUES(3, 0);
+-- INSERT INTO Offered_Items VALUES(3, 1);
+-- INSERT INTO Offered_Items VALUES(3, 2);
+-- INSERT INTO Offered_Items VALUES(3, 3);
 INSERT INTO Offered_Items VALUES(3, 6);
---INSERT INTO Offered_Items VALUES(3, 8);
---INSERT INTO Offered_Items VALUES(3, 9);
---INSERT INTO Offered_Items VALUES(4, 0);
---INSERT INTO Offered_Items VALUES(4, 1);
---INSERT INTO Offered_Items VALUES(4, 2);
---INSERT INTO Offered_Items VALUES(4, 5);
+-- INSERT INTO Offered_Items VALUES(3, 8);
+-- INSERT INTO Offered_Items VALUES(3, 9);
+-- INSERT INTO Offered_Items VALUES(4, 0);
+-- INSERT INTO Offered_Items VALUES(4, 1);
+-- INSERT INTO Offered_Items VALUES(4, 2);
+-- INSERT INTO Offered_Items VALUES(4, 5);
 INSERT INTO Offered_Items VALUES(4, 7);
---INSERT INTO Offered_Items VALUES(4, 8);
---INSERT INTO Offered_Items VALUES(4, 9);
---INSERT INTO Offered_Items VALUES(5, 2);
+-- INSERT INTO Offered_Items VALUES(4, 8);
+-- INSERT INTO Offered_Items VALUES(4, 9);
+-- INSERT INTO Offered_Items VALUES(5, 2);
 INSERT INTO Offered_Items VALUES(5, 11);
---INSERT INTO Offered_Items VALUES(6, 2);
+-- INSERT INTO Offered_Items VALUES(6, 2);
 INSERT INTO Offered_Items VALUES(6, 9);
 INSERT INTO Offered_Items VALUES(7, 10);
 -- following tuples are added for restaurants in Wesbrook Village
---INSERT INTO Offered_Items VALUES(8, 12);
+-- INSERT INTO Offered_Items VALUES(8, 12);
 INSERT INTO Offered_Items VALUES(8, 13);
---INSERT INTO Offered_Items VALUES(9, 14);
+-- INSERT INTO Offered_Items VALUES(9, 14);
 INSERT INTO Offered_Items VALUES(9, 15);
 -- following tuples are added for restaurants in Kitsilano
---INSERT INTO Offered_Items VALUES(10, 16);
+-- INSERT INTO Offered_Items VALUES(10, 16);
 INSERT INTO Offered_Items VALUES(10, 17);
---INSERT INTO Offered_Items VALUES(11, 18);
+-- INSERT INTO Offered_Items VALUES(11, 18);
 INSERT INTO Offered_Items VALUES(11, 19);
 -- following is for dummy_owner
 INSERT INTO Offered_Items VALUES(13, 18);
@@ -532,8 +534,4 @@ INSERT INTO User_Review VALUES (24, 0, 'undecided', "absolutely hated it!", '201
 INSERT INTO User_Review VALUES (25, 0, 'undecided', "absolutely hated it!", '2019-03-16', 'chubbyKid', 8);
 INSERT INTO User_Review VALUES (26, 0, 'undecided', "absolutely hated it!", '2019-03-17', 'chubbyKid', 9);
 INSERT INTO User_Review VALUES (27, 0, 'undecided', "absolutely hated it!", '2019-03-18', 'chubbyKid', 10);
-INSERT INTO User_Review VALUES (28, 0, 'undecided', "absolutely hated it!", '2019-03-19', 'chubbyKid', 11) ;
-INSERT INTO User_Review VALUES (29, 0, 'undecided', "absolutely hated it!", '2019-03-10', 'chubbyKid', 12);
-INSERT INTO User_Review VALUES (30, 0, 'undecided', "absolutely hated it!", '2019-03-10', 'chubbyKid', 82);
-INSERT INTO User_Review VALUES (31, 0, 'undecided', "absolutely hated it!", '2019-03-10', 'chubbyKid', 102);
-INSERT INTO User_Review VALUES (32, 0, 'undecided', "absolutely hated it!", '2019-03-10', 'chubbyKid', 142);
+INSERT INTO User_Review VALUES (28, 0, 'undecided', "absolutely hated it!", '2019-03-19', 'chubbyKid', 11);
