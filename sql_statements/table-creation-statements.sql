@@ -1,4 +1,7 @@
+-- depends on which database is being used. SHOULD BE SET BY USER OF THIS SCRIPT BEFORE RUNNING!
 USE heroku_e52fec4ca086f6b;
+
+SET sql_mode='NO_AUTO_VALUE_ON_ZERO';
 
 CREATE TABLE Ingredient (
 ingredientId INTEGER PRIMARY KEY,
@@ -84,7 +87,7 @@ email CHAR(40) UNIQUE
 );
 
 CREATE TABLE Restaurant (
-restaurantId INTEGER PRIMARY KEY,
+restaurantId INTEGER PRIMARY KEY AUTO_INCREMENT,
 name CHAR(40),
 cuisine CHAR(20),
 username CHAR(20) NOT NULL UNIQUE,
@@ -115,7 +118,7 @@ FOREIGN KEY (menuId) REFERENCES Menu(menuId) ON DELETE CASCADE
 );
 
 CREATE TABLE User_Review (
-reviewId INTEGER PRIMARY KEY,
+reviewId INTEGER PRIMARY KEY AUTO_INCREMENT,
 upvotes INTEGER,
 reliabilityIndex CHAR(20),
 comments VARCHAR(100),
